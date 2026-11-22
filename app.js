@@ -301,6 +301,8 @@
     "Penhaligon's":"penhaligons.com","Prada":"prada.com","Rasasi":"rasasi.com","Tom Ford Private Blend":"tomford.com","Xerjoff":"xerjoff.com",
     "YSL":"yslbeauty.com","Zoologist":"zoologistperfumes.com"
   };
+  // null = no reliable icon found, show the name badge
+  const LOGO_OVERRIDE = { "Guerlain L'Art & La Matière": "https://icons.duckduckgo.com/ip3/guerlain.com.ico", "Rasasi": null };
   const initials = b => b.replace(/[^A-Za-z ]/g,"").split(" ").filter(Boolean).slice(0,2).map(w=>w[0]).join("").toUpperCase();
 
   // ---------- LOGGING ----------
@@ -439,9 +441,9 @@
     const d = BRAND_DOMAIN[brand]; if (!d) return box;
     const sources = [];
     if (CFG.BRANDFETCH_CLIENT_ID) sources.push(`https://cdn.brandfetch.io/domain/${d}/w/400/h/160/theme/dark/fallback/404/type/logo?c=${CFG.BRANDFETCH_CLIENT_ID}`);
-    // Live site icons, used until a Brandfetch client ID is set (and for brands Brandfetch lacks)
-    sources.push(`https://www.google.com/s2/favicons?domain=${d}&sz=128`);
-    sources.push(`https://icons.duckduckgo.com/ip3/${d}.ico`);
+    // Site icons, checked brand by brand (Nov 2026). Google's icon is right for all but these two.
+    if (LOGO_OVERRIDE[brand] !== undefined) { if (LOGO_OVERRIDE[brand]) sources.push(LOGO_OVERRIDE[brand]); }
+    else sources.push(`https://www.google.com/s2/favicons?domain=${d}&sz=128`);
     const tryNext = () => {
       const src = sources.shift(); if (!src) return;
       const img = el("img", { alt:`${brand} logo`, referrerpolicy:"no-referrer" });

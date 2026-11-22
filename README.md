@@ -1,4 +1,4 @@
-# ScentFinder v2 (draft 1)
+# ScentFinder (front-facing name: The Character Study)
 
 Psychology-first perfume quiz: 14 questions → scent profile, narrative, and best match at every price tier.
 
@@ -7,6 +7,7 @@ Psychology-first perfume quiz: 14 questions → scent profile, narrative, and be
 - `config.js` – **the only file you edit**: paste your Apps Script URL into `SHEET_WEBAPP_URL`
 - `data.js` – perfume database (accords 0–3, tier, price, strength, crowd-pleaser flag)
 - `app.js` – questions, scoring, narrative, response logging
+- `illus.js` – all line illustrations (SVG)
 - `Code.gs` – Google Apps Script that writes each response into the "ScentFinder Responses" sheet
 
 ## Run locally

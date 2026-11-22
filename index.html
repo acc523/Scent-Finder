@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ScentFinder: find your scent</title>
+<style>
+  :root {
+    --bg: #f6f1ea; --ink: #2b2420; --muted: #7a6e66; --card: #fffdf9;
+    --line: #e6ddd2; --accent: #8a4b2a; --accent-soft: #f2e3d8;
+    --t1:#9aa5ad; --t2:#5b7fa6; --t3:#7b5ea7; --t4:#c27a3a; --t5:#b04a5a; --t6:#4f8a5b; --t7:#a8862f;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: Georgia, "Iowan Old Style", serif; background: var(--bg); color: var(--ink); line-height: 1.5; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 32px 20px 80px; }
+  header .logo { font-size: 14px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); font-family: system-ui, sans-serif; }
+  h1 { font-size: clamp(32px, 5vw, 52px); line-height: 1.1; margin: 12px 0; font-weight: 400; }
+  h2 { font-weight: 400; font-size: 26px; margin: 0 0 8px; }
+  h2.sec { margin-top: 44px; border-top: 1px solid var(--line); padding-top: 28px; }
+  p.lede { font-size: 19px; color: var(--muted); max-width: 640px; }
+  button { font: inherit; cursor: pointer; }
+  .primary { background: var(--accent); color: #fff; border: 0; padding: 12px 22px; border-radius: 999px; font-family: system-ui, sans-serif; font-size: 15px; }
+  .primary:hover { filter: brightness(1.08); }
+  .ghost { background: transparent; border: 1px solid var(--line); padding: 11px 20px; border-radius: 999px; font-family: system-ui, sans-serif; font-size: 15px; color: var(--ink); }
+  .ghost:disabled { opacity: .35; cursor: default; }
+  a { color: var(--accent); }
+  .hidden { display: none !important; }
+  .hint { color: var(--muted); font-family: system-ui, sans-serif; font-size: 14px; margin: 4px 0 18px; }
+  .hint.warn, .warn { color: #b0452f; }
+  .progress { height: 4px; background: var(--line); border-radius: 4px; overflow: hidden; margin: 18px 0 6px; }
+  #progress-bar { height: 100%; width: 0; background: var(--accent); transition: width .3s; }
+  #step-count { font-family: system-ui, sans-serif; font-size: 12px; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; }
+  #quiz { margin-top: 24px; }
+  #quiz h2 { font-size: clamp(22px,3.4vw,30px); line-height:1.25; max-width: 760px; }
+  .opts.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+  .opts.list { display: grid; gap: 10px; max-width: 560px; }
+  .opt { display: flex; align-items: center; gap: 12px; text-align: left; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; font-family: system-ui, sans-serif; font-size: 15px; color: var(--ink); transition: border-color .15s, background .15s; }
+  .opt:hover:not(:disabled) { border-color: var(--accent); }
+  .opt.on { background: var(--accent-soft); border-color: var(--accent); }
+  .opt:disabled { opacity: .35; cursor: not-allowed; }
+  .opt .em { font-size: 22px; }
+  .nav { display: flex; gap: 10px; margin-top: 26px; }
+  .profile { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 22px 24px; margin-top: 20px; font-size: 18px; }
+  .cards { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+  .cards.big { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px 18px 14px; display: flex; flex-direction: column; }
+  .card h3 { margin: 10px 0 0; font-weight: 400; font-size: 21px; }
+  .card.compact h3 { font-size: 18px; }
+  .brand { margin: 2px 0 8px; color: var(--muted); font-family: system-ui, sans-serif; font-size: 13px; }
+  .blurb { margin: 0 0 8px; }
+  .notes, .why { font-family: system-ui, sans-serif; font-size: 13px; margin: 0 0 8px; }
+  .why { color: var(--accent); }
+  .meta { margin-top: auto; display: flex; flex-wrap: wrap; gap: 6px; font-family: system-ui, sans-serif; font-size: 11px; }
+  .meta span { background: var(--bg); border-radius: 999px; padding: 3px 9px; color: var(--muted); }
+  .card-top { display: flex; justify-content: space-between; align-items: center; }
+  .match { font-family: system-ui, sans-serif; font-size: 12px; font-weight: 600; color: var(--accent); }
+  .tier-chip { display: inline-block; font-family: system-ui, sans-serif; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: #fff; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+  .t1{background:var(--t1)} .t2{background:var(--t2)} .t3{background:var(--t3)} .t4{background:var(--t4)} .t5{background:var(--t5)} .t6{background:var(--t6)} .t7{background:var(--t7)}
+  .tier-row { margin: 26px 0; }
+  .tier-head { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 12px; }
+  .tier-head h4 { margin: 0; font-weight: 400; font-size: 19px; }
+  .tier-head p { margin: 2px 0 0; color: var(--muted); font-family: system-ui, sans-serif; font-size: 13px; max-width: 700px; }
+  .avoid { font-family: system-ui, sans-serif; font-size: 14px; color: var(--muted); }
+  .tips { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px 24px; margin-top: 36px; font-family: system-ui, sans-serif; font-size: 14px; }
+  .tips h3 { font-family: Georgia, serif; font-weight: 400; margin-top: 4px; }
+  #tier-guide { margin-top: 18px; display: grid; gap: 10px; }
+  .tg { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; font-family: system-ui, sans-serif; font-size: 14px; }
+  .tg p { margin: 2px 0 0; color: var(--muted); }
+  footer { margin-top: 60px; font-family: system-ui, sans-serif; font-size: 12px; color: var(--muted); }
+
+  .sliders { display:grid; gap:26px; max-width:620px; margin-top:10px; }
+  .sl-ends { display:flex; justify-content:space-between; font-family:system-ui,sans-serif; font-size:15px; margin-bottom:6px; }
+  .sl-ends span { display:flex; flex-direction:column; } .sl-ends .r { text-align:right; }
+  .sl-ends i { font-size:12px; color:var(--muted); font-style:normal; }
+  input[type=range] { width:100%; accent-color: var(--accent); height: 28px; }
+  textarea { width:100%; max-width:620px; font:inherit; font-size:17px; padding:14px; border:1px solid var(--line); border-radius:14px; background:var(--card); color:var(--ink); }
+  .consent { display:flex; gap:10px; align-items:flex-start; max-width:620px; margin-top:16px; font-family:system-ui,sans-serif; font-size:13px; color:var(--muted); }
+  .consent input { margin-top:3px; accent-color: var(--accent); }
+  h1.sig { font-size: clamp(30px,4.6vw,46px); }
+  .story { font-size: 21px; max-width: 720px; }
+  .flags { font-family:system-ui,sans-serif; font-size:13px; color:var(--muted); padding-left:18px; }
+  .logo { font-size: 14px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); font-family: system-ui, sans-serif; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header><div class="logo">ScentFinder</div></header>
+  <section id="intro">
+    <h1>A perfume quiz that doesn't ask about perfume.</h1>
+    <p class="lede">Fourteen questions about how you come across, what stays with people, and the places you'd rather be. We turn that into a scent profile and your best match at every price, from budget to ultra-luxury.</p>
+    <p class="hint">About 3 minutes. There are no wrong answers, so go with your first instinct.</p>
+    <div class="nav"><button class="primary" id="start">Begin →</button></div>
+  </section>
+  <section id="app" class="hidden">
+    <div class="progress"><div id="progress-bar"></div></div>
+    <div id="step-count"></div>
+    <div id="quiz"></div>
+    <div id="results" class="hidden"></div>
+  </section>
+  <footer>Prices and formulas change, so treat tiers as a rough guide. Every perfume is wearable by anyone.</footer>
+</div>
+<script src="config.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

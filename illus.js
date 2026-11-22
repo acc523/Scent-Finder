@@ -289,29 +289,25 @@
     <path d="M80 60 Q72 66 80 72 Q88 78 80 84 Q74 88 78 94" opacity=".6"/>`);
 
   // ---------- front page: the scent pyramid (top / heart / base) ----------
-  I.pyramid = `<svg viewBox="0 0 360 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Top, heart and base notes">
-    <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M180 8 Q172 0 180 -8" opacity=".0"/>
+  I.pyramid = `<svg viewBox="-12 0 392 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Top, heart and base notes">
+    <g fill="none" stroke="#1F3A2E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
       <path d="M176 40 Q168 30 176 20 Q184 10 176 2 M188 42 Q182 34 188 26" opacity=".55"/>
       <path d="M180 48 L148 104 H212 Z" fill="#F2DC8C"/>
       <path d="M148 104 L112 168 H248 L212 104 Z" fill="#EDB9C4"/>
       <path d="M112 168 L74 236 H286 L248 168 Z" fill="#C9A27A"/>
       <path d="M180 48 L74 236 H286 Z" stroke-width="2.2"/>
-      <g transform="translate(166 74) scale(.62)" stroke="#9A7A10"><circle cx="12" cy="12" r="9" fill="#F6E7A8"/><path d="M12 3 V21 M3 12 H21 M5.6 5.6 L18.4 18.4 M18.4 5.6 L5.6 18.4"/></g>
-      <g transform="translate(184 86) scale(.5)" stroke="#3F7A4B"><path d="M4 20 Q4 6 20 4 Q20 20 4 20 Z" fill="#B9D3A8"/><path d="M4 20 L16 8"/></g>
-      <path d="M158 96 l2 -4 l2 4 l-2 4 Z M198 70 l1.5 -3 l1.5 3 l-1.5 3 Z" fill="#B8913A" stroke="none"/>
-      <g transform="translate(140 122) scale(1.1)" stroke="#8E3B52"><circle cx="12" cy="12" r="2.5" fill="#F4D38A"/><path d="M12 9.5 Q9 2 12 2 Q15 2 12 9.5 M14.5 12 Q22 9 22 12 Q22 15 14.5 12 M12 14.5 Q15 22 12 22 Q9 22 12 14.5 M9.5 12 Q2 15 2 12 Q2 9 9.5 12" fill="#F7D3DC"/></g>
-      <g transform="translate(184 128) scale(.9)" stroke="#8E3B52"><circle cx="12" cy="12" r="2.5" fill="#F4D38A"/><path d="M12 9.5 Q9 2 12 2 Q15 2 12 9.5 M14.5 12 Q22 9 22 12 Q22 15 14.5 12 M12 14.5 Q15 22 12 22 Q9 22 12 14.5 M9.5 12 Q2 15 2 12 Q2 9 9.5 12" fill="#F7D3DC"/></g>
-      <g stroke="#5A3A22"><path d="M110 214 H170 Q176 206 170 198 H110 Q104 206 110 214 Z" fill="#9C6B43"/><ellipse cx="170" cy="206" rx="5" ry="8" fill="#D8B48A"/><path d="M168 206 a2 3 0 1 0 4 0" /><path d="M120 204 H150 M126 210 H158" opacity=".6"/></g>
-      <g stroke="#3B2A1A"><path d="M196 214 Q214 196 246 200 Q230 206 196 214 Z" fill="#4A2E1C"/><path d="M204 208 Q220 202 238 202" opacity=".5"/></g>
-      <path d="M236 196 Q230 186 236 178 Q242 170 236 162" stroke="#55524E" opacity=".7"/>
     </g>
-    <g font-family="Jost, system-ui, sans-serif" font-size="10" letter-spacing="2.4" fill="#1F3A2E" stroke="none">
-      <path d="M206 78 H250" stroke="#B8913A" fill="none"/><text x="256" y="76">TOP</text><text x="256" y="89" font-size="8.5" letter-spacing="1" fill="#4B5F55">how you arrive</text>
-      <path d="M232 138 H270" stroke="#B8913A" fill="none"/><text x="276" y="136">HEART</text><text x="276" y="149" font-size="8.5" letter-spacing="1" fill="#4B5F55">who you are</text>
-      <path d="M264 204 H292" stroke="#B8913A" fill="none"/><text x="298" y="202">BASE</text><text x="298" y="215" font-size="8.5" letter-spacing="1" fill="#4B5F55">what lingers</text>
+    <g font-family="Fraunces, Georgia, serif" font-weight="700" text-anchor="middle" fill="#1F3A2E" stroke="none" style="font-variation-settings:'SOFT' 100,'WONK' 1">
+      <text x="180" y="95" font-size="15">Top</text>
+      <text x="180" y="143" font-size="20">Heart</text>
+      <text x="180" y="210" font-size="24">Base</text>
     </g>
-    <path d="M60 252 H300" stroke="#B8913A" stroke-width="1"/><path d="M180 246 l6 6 l-6 6 l-6 -6 Z" fill="#F4EFE6" stroke="#B8913A"/>
+    <g font-family="Jost, system-ui, sans-serif" font-size="11" letter-spacing="1.2" fill="#4B5F55" stroke="none">
+      <path d="M200 90 H246" stroke="#B8913A" fill="none"/><circle cx="200" cy="90" r="2" fill="#B8913A"/><text x="252" y="94">how you arrive</text>
+      <path d="M224 138 H266" stroke="#B8913A" fill="none"/><circle cx="224" cy="138" r="2" fill="#B8913A"/><text x="272" y="142">who you are</text>
+      <path d="M262 204 H286" stroke="#B8913A" fill="none"/><circle cx="262" cy="204" r="2" fill="#B8913A"/><text x="292" y="208">what lingers</text>
+    </g>
+    <path d="M60 254 H300" stroke="#B8913A" stroke-width="1"/><path d="M180 248 l6 6 l-6 6 l-6 -6 Z" fill="#FAF8F3" stroke="#B8913A"/>
   </svg>`;
 
   window.ILLUS = I;

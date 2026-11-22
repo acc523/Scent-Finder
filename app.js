@@ -16,7 +16,7 @@
   const Q = [
     // ===== FIRST IMPRESSIONS (top notes) =====
     { id:"q1_walk_in", layer:"top", section:"Top notes · First impressions",
-      title:"When you walk into a room, you'd want the people in it to feel…",
+      title:"When you walk into a room of strangers, you'd want the people to suddenly feel…",
       options:[
         { v:"full_of_life", e:"🎉", label:"Full of life", a:{citrus:2,fruity:2}, x:{sharp:.2}, p:.6, frag:"full of life, like the lights just came on" },
         { v:"at_ease", e:"🕊️", label:"At ease", a:{clean:2,aquatic:1,floral:1}, x:{dense:-.3,sharp:-.3}, p:-.3, frag:"at ease, like someone opened a window" },
@@ -27,9 +27,9 @@
     { id:"q2_first_meet", layer:"top", section:"Top notes · First impressions",
       title:"New place, new people, new everything. You're usually…",
       options:[
-        { v:"joke", e:"😄", label:"The one cracking jokes", a:{citrus:2,fruity:1,sweet:1}, x:{}, p:.5 },
-        { v:"listener", e:"👂", label:"The one quietly taking it all in", a:{clean:2,floral:1}, x:{dense:-.2,sharp:-.3}, p:-.5 },
-        { v:"question", e:"🧐", label:"The one asking all the questions", a:{herbal:2,green:1}, x:{strange:.3,sharp:.2}, p:0 },
+        { v:"joke", e:"😄", label:"The one who makes people laugh", a:{citrus:2,fruity:1,sweet:1}, x:{}, p:.5 },
+        { v:"listener", e:"👂", label:"The one observing all the hidden details", a:{clean:2,floral:1}, x:{dense:-.2,sharp:-.3}, p:-.5 },
+        { v:"question", e:"🧐", label:"The one asking intriguing questions", a:{herbal:2,green:1}, x:{strange:.3,sharp:.2}, p:0 },
         { v:"presence", e:"✨", label:"The one people notice first", a:{woody:2,smoky:1}, x:{dense:.4}, p:.6 }
       ]},
     { id:"q3_misread", layer:"top", section:"Top notes · First impressions",
@@ -75,12 +75,12 @@
 
     // ===== WHAT LINGERS =====
     { id:"q7_after_leave", layer:"base", section:"Base notes · What lingers",
-      title:"After you leave the room, the people you've just left feel…",
+      title:"After you leave the room, you'd want the people you've just left to feel…",
       options:[
-        { v:"comforted", e:"🫶", label:"Comforted", a:{sweet:2,clean:1,woody:1}, x:{sharp:-.3}, frag:"comforted, without being able to say why" },
-        { v:"quieter", e:"🌙", label:"Like the room got quieter", a:{woody:2,earthy:1}, x:{dense:.1,sharp:-.2}, frag:"aware of the quiet you left behind" },
+        { v:"comforted", e:"🫶", label:"Comforted by you", a:{sweet:2,clean:1,woody:1}, x:{sharp:-.3}, frag:"comforted, without being able to say why" },
+        { v:"quieter", e:"🌙", label:"Like the room feels a bit lonelier without you", a:{woody:2,earthy:1}, x:{dense:.1,sharp:-.2}, frag:"a little lonelier without you" },
         { v:"thinking", e:"💭", label:"Still thinking about something you said", a:{herbal:1,woody:2}, x:{sharp:.3,dry:.2}, frag:"still turning over something you said" },
-        { v:"lighter", e:"🎈", label:"Lighter", a:{citrus:2,clean:1,aquatic:1}, x:{dense:-.4}, frag:"lighter than before you arrived" },
+        { v:"lighter", e:"🎈", label:"Like you've helped them feel lighter", a:{citrus:2,clean:1,aquatic:1}, x:{dense:-.4}, frag:"lighter than before you arrived" },
         { v:"intrigued", e:"🕯️", label:"Intrigued, and a little unsure", a:{smoky:2,earthy:1}, x:{tension:.4,strange:.3}, frag:"intrigued, and not quite sure what happened" }
       ]},
     { id:"q8_ending", layer:"base", section:"Base notes · What lingers", grid:"pics",
@@ -371,7 +371,7 @@
       const list = el("div", { class: cls });
       for (const o of q.options) {
         const on = ans[q.id]===o.v;
-        const pick = () => { ans[q.id]=o.v; renderQuestion(); setTimeout(goNext, 260); };
+        const pick = () => { ans[q.id]=o.v; renderQuestion(); };
         if (o.img) list.append(el("button", { class:"opt pic"+(on?" on":""), onclick: pick },
           art(o.img), el("span", { class:"lbl" }, el("span", { class:"em" }, o.e), " ", o.label), o.sub ? el("span", { class:"sub" }, o.sub) : null));
         else list.append(el("button", { class:"opt"+(on?" on":""), onclick: pick }, el("span", { class:"em" }, o.e), el("span", {}, o.label)));
@@ -478,7 +478,7 @@
     return `<svg viewBox="0 0 320 370" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Your character portrait">
       <defs><radialGradient id="pg" cx="50%" cy="42%" r="62%"><stop offset="0" stop-color="${c1}" stop-opacity=".42"/><stop offset=".6" stop-color="${c2}" stop-opacity=".28"/><stop offset="1" stop-color="${c3}" stop-opacity=".18"/></radialGradient>
       <clipPath id="ov"><ellipse cx="160" cy="180" rx="104" ry="136"/></clipPath></defs>
-      <ellipse cx="160" cy="180" rx="104" ry="136" fill="#FBF8F2"/>
+      <ellipse cx="160" cy="180" rx="104" ry="136" fill="#FFFEFB"/>
       <ellipse cx="160" cy="180" rx="104" ry="136" fill="url(#pg)"/>
       <g clip-path="url(#ov)" color="#1F3A2E" opacity=".22">${roomArt}</g>
       <g clip-path="url(#ov)" color="#1F3A2E">${char}</g>

@@ -13,7 +13,7 @@
   @font-face { font-family:"Jost"; src:url("fonts/jost-latin-500-normal.woff2") format("woff2"); font-weight:500; font-display:swap; }
   @font-face { font-family:"Jost"; src:url("fonts/jost-latin-600-normal.woff2") format("woff2"); font-weight:600; font-display:swap; }
   :root {
-    --paper:#F4EFE6; --paper2:#FBF8F2; --ink:#1F3A2E; --ink-soft:#4B5F55; --gold:#B8913A; --gold-soft:#EADFC6;
+    --paper:#FAF8F3; --paper2:#FFFEFB; --ink:#1F3A2E; --ink-soft:#4B5F55; --gold:#B8913A; --gold-soft:#EADFC6;
     --wine:#7A2E3A; --line:#D9CDB8; --serif:"Fraunces", Georgia, serif; --sans:"Jost", system-ui, sans-serif;
   }
   * { box-sizing:border-box; }
@@ -68,7 +68,7 @@
   .opt .em { font-size:30px; line-height:1; }
   .opt:active { transform:scale(.98); }
   @media (hover:hover) { .opt:hover { border-color:var(--ink); } }
-  .opt.on { border-color:var(--ink); outline-color:var(--gold); background:#fffdf8; }
+  .opt.on { border-color:var(--ink); outline-color:var(--gold); background:#FFFFFF; }
   .opt.pic { flex-direction:column; gap:6px; padding:12px 12px 16px; }
   .opt.pic .art { width:100%; color:var(--ink); }
   .opt.pic .lbl { font-family:var(--serif); font-size:21px; font-weight:640; }
@@ -86,7 +86,7 @@
   .pole .art { width:86px; margin:0 auto; color:var(--ink); }
   .pole h3 { margin:6px 0 6px; font-weight:700; font-size:26px; }
   .pole ul { list-style:none; padding:0; margin:0; font-family:var(--sans); font-weight:400; font-size:14px; color:var(--ink-soft); line-height:1.7; }
-  .lean-l .pole.l, .lean-r .pole.r { background:#fffdf8; border-color:var(--gold); box-shadow:0 0 0 4px var(--gold-soft); }
+  .lean-l .pole.l, .lean-r .pole.r { background:#FFFFFF; border-color:var(--gold); box-shadow:0 0 0 4px var(--gold-soft); }
   .lean-l .pole.r, .lean-r .pole.l { opacity:.42; }
   .strong.lean-l .pole.l, .strong.lean-r .pole.r { background:var(--gold-soft); box-shadow:0 0 0 6px var(--gold-soft), 0 0 0 7px var(--gold); }
   .track-wrap { position:relative; margin:30px 6% 0; height:44px; }
@@ -143,7 +143,7 @@
   .pname { font-size:clamp(44px,7vw,64px); font-weight:720; margin:2px 0 8px; font-style:italic; color:var(--wine); }
   .portrait { width:min(320px,82vw); margin:0 auto; }
   .portrait svg { width:100%; height:auto; display:block; }
-  .portrait .a { fill:var(--gold); } .portrait .p { fill:#FBF8F2; }
+  .portrait .a { fill:var(--gold); } .portrait .p { fill:#FFFEFB; }
   .ptitle { font-family:var(--sans); text-transform:uppercase; letter-spacing:.24em; font-size:12px; margin:14px 0 0; }
   .pyramid { display:flex; flex-direction:column; align-items:center; gap:8px; max-width:600px; margin:0 auto; }
   .prow { background:var(--paper2); border:1px solid var(--line); padding:12px 10px; }
@@ -183,10 +183,10 @@
   <section id="intro">
     <div id="emblem"></div>
     <p class="eyebrow">A scent questionnaire</p>
-    <h1>Who are you, <em>really?</em></h1>
+    <h1>The character of your <em>scent</em></h1>
     <div class="rule"></div>
-    <p class="lede">A psychological mapping test for your perfect scent. Answer on instinct about rooms, rituals and the way you move through the world. We translate you into top, heart and base notes, then match you with perfumes at every price.</p>
-    <p class="hint">No perfume knowledge needed. Most of the questions aren't about smell at all.</p>
+    <p class="lede">A mapping survey for the truth behind your scent. Answer instinctively about how you move through the world; don't overthink it.</p>
+    <p class="lede">We transliterate your profile into your unique combination of top, heart and base notes, then match your scent profile with recommended perfumes at every brand tier.</p>
     <div class="name-field">
       <label for="first-name">Your first name</label>
       <input id="first-name" type="text" autocomplete="given-name" maxlength="40" placeholder="e.g. Sam">

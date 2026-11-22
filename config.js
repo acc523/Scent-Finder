@@ -4,5 +4,5 @@
 window.SCENTFINDER_CONFIG = {
   SHEET_WEBAPP_URL: "https://script.google.com/macros/s/AKfycbxvNbP3xG59JlHHWU6qS4a_T7ycxhvopragwXRkFuzVO0uiA0WBassgmbqXujHWKuiRGg/exec",
   BRANDFETCH_CLIENT_ID: "",
-  VERSION: "v3-draft3"
+  VERSION: "v3-draft4"
 };

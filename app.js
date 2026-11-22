@@ -54,7 +54,7 @@
         { v:"smoking_room", img:"smoking_room", e:"🥃", label:"The smoking room", sub:"in a leather armchair, brandy in hand", a:{smoky:3,woody:1,sweet:1}, x:{smoky:.5,dense:.4}, fam:"smoke", frag:"magnetic and a little dangerous, comfortable in the dark" }
       ]},
     { id:"q5_role", layer:"heart", section:"Heart notes · Who you are", grid:"chars",
-      title:"Choose your character. In the story of your friend group, you're…",
+      title:"Choose your character. In the story you'd write for yourself, you'd be the…",
       options:[
         { v:"protagonist", img:"protagonist", e:"⭐", label:"The Protagonist", sub:"it's your story, they're all in it", a:{citrus:1,woody:2}, x:{strange:-.3}, p:.3, fam:"woody" },
         { v:"confidant", img:"confidant", e:"🤝", label:"The Confidant", sub:"everyone's 2am phone call", a:{clean:2,floral:1}, x:{sharp:-.3}, p:-.3, fam:"skin" },
@@ -98,12 +98,12 @@
       options:[
         { v:"forest_cabin", img:"forest_cabin", e:"🌲", label:"A cabin in a pine forest", a:{woody:3,smoky:1,green:1} },
         { v:"beach_dawn", img:"beach_dawn", e:"🌅", label:"A beach at dawn", a:{aquatic:3,citrus:1,clean:1}, x:{dense:-.4} },
-        { v:"old_library", img:"old_library", e:"📚", label:"An old library", a:{woody:2,earthy:1,sweet:1}, x:{dense:.2} },
-        { v:"night_market", img:"night_market", e:"🏮", label:"A night market", a:{spicy:2,sweet:1,smoky:1,fruity:1}, x:{dense:.3,tension:.2} },
-        { v:"rooftop_bar", img:"rooftop_bar", e:"🌆", label:"A rooftop bar at sunset", a:{citrus:2,fruity:1,woody:1,sweet:1} },
-        { v:"garden_rain", img:"garden_rain", e:"🌧️", label:"A garden just after rain", a:{green:2,floral:1,earthy:1,herbal:1}, x:{dense:-.2} },
-        { v:"desert_road", img:"desert_road", e:"🌵", label:"A long desert road", a:{earthy:2,spicy:1,woody:1}, x:{dry:.5} },
-        { v:"quiet_church", img:"quiet_church", e:"🕍", label:"A quiet old chapel", a:{smoky:2,woody:1,clean:1}, x:{strange:.2} }
+        { v:"old_library", img:"old_library", e:"📚", label:"A beautiful library", a:{woody:2,earthy:1,sweet:1}, x:{dense:.2} },
+        { v:"night_market", img:"night_market", e:"🛍️", label:"A flea market", a:{earthy:2,woody:1,spicy:1,smoky:1}, x:{dense:.2,strange:.3,tension:.2} },
+        { v:"rooftop_bar", img:"rooftop_bar", e:"🌆", label:"A penthouse bar atop a cosmopolitan city", a:{citrus:1,woody:2,spicy:1,sweet:1}, x:{dense:.2,sharp:.2} },
+        { v:"garden_rain", img:"garden_rain", e:"🌸", label:"A garden full of flowers in dewy bloom", a:{floral:3,green:2,aquatic:1}, x:{dense:-.2,sharp:-.2} },
+        { v:"desert_road", img:"desert_road", e:"🌾", label:"Open plains, with open possibilities beyond", a:{green:2,herbal:1,earthy:1}, x:{dense:-.4,dry:.3,strange:.2} },
+        { v:"quiet_church", img:"quiet_church", e:"🕊️", label:"A calm, spirit-filled space", a:{smoky:2,woody:1,clean:1}, x:{strange:.2,sharp:-.2} }
       ]},
     { id:"q10_drink", section:"Mood · Places & senses", grid:"pics",
       title:"Someone hands you a drink. Which one do you hope it is?",

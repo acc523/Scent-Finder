@@ -100,25 +100,27 @@
     ${[30,52,72,92,112,132].map((x,i)=>{const y=[29,33,28,30,34,28][i];return `<path d="M${x} ${y} V${y+4}"/><path class="a" stroke="none" d="M${x-4} ${y+4} H${x+4} Q${x+5} ${y+12} ${x} ${y+13} Q${x-5} ${y+12} ${x-4} ${y+4} Z"/>`}).join("")}
     <path d="M18 104 V66 M62 104 V66"/><path d="M14 66 L22 56 H58 L66 66 Z"/><path d="M14 66 Q20 72 26 66 Q32 72 38 66 Q44 72 50 66 Q56 72 62 66"/><path d="M22 84 H58"/>
     <path d="M98 104 V66 M142 104 V66"/><path d="M94 66 L102 56 H138 L146 66 Z"/><path d="M94 66 Q100 72 106 66 Q112 72 118 66 Q124 72 130 66 Q136 72 142 66"/><path d="M102 84 H138"/>
-    <path d="M78 76 Q74 70 78 64 M84 76 Q80 70 84 64" opacity=".6"/><path d="M72 84 H90 L86 96 H76 Z"/>`);
+    <path d="M68 104 V90 H94 V104"/><path d="M72 90 Q70 80 76 76 Q74 70 78 66 H84 Q88 70 86 76 Q92 80 90 90" class="p"/><path d="M72 90 Q70 80 76 76 Q74 70 78 66 H84 Q88 70 86 76 Q92 80 90 90"/>
+    <circle cx="34" cy="76" r="6"/><path d="M34 72 V76 H37"/><path d="M110 84 V72 M104 72 H116 L113 64 H107 Z"/><path d="M122 84 h10 v-8 h-10 Z"/>`);
   I.rooftop_bar = W(`<path d="M14 72 H146"/>
     <path d="M14 72 V50 H24 V40 H34 V72 M40 72 V30 H54 V72 M60 72 V46 H70 V72 M100 72 V36 H112 V72 M118 72 V52 H132 V44 H140 V72"/>
     <path class="a" stroke="none" d="M74 72 A12 12 0 0 1 98 72 Z"/>
     <path d="M14 82 H146 M14 82 V104 M146 82 V104 M34 82 V104 M54 82 V104 M74 82 V104 M94 82 V104 M114 82 V104 M134 82 V104"/>
     <path d="M78 82 L70 64 H94 L86 82"/><path d="M82 82 V78" stroke="none"/><path d="M90 66 L98 56"/><circle class="a" cx="72" cy="66" r="3" stroke="none"/>`);
   I.garden_rain = W(`${ground}
-    <path d="M44 34 Q44 20 58 22 Q64 10 78 16 Q92 10 96 24 Q110 24 108 36 Z"/>
-    <path d="M56 44 l-2 6 M70 44 l-2 6 M84 44 l-2 6 M98 44 l-2 6 M62 56 l-2 6 M90 56 l-2 6"/>
-    <path d="M30 104 V76"/><circle class="a" cx="30" cy="72" r="6" stroke="none"/><path d="M30 88 Q22 84 22 78 M30 92 Q38 88 38 82"/>
-    <path d="M56 104 V82"/><path d="M50 82 Q56 70 62 82 Q56 88 50 82"/>
-    <path d="M120 104 V74"/><circle class="a" cx="120" cy="70" r="5" stroke="none"/><path d="M120 90 Q128 86 130 80"/>
-    <path d="M76 100 Q92 94 108 100 Q92 106 76 100"/><path d="M138 104 Q138 92 146 88"/>`);
-  I.desert_road = W(`<path d="M14 64 H146"/>
-    <path d="M72 64 L30 112 M88 64 L130 112"/><path d="M80 70 V74 M80 82 V88 M80 96 V104" stroke-width="2"/>
-    <circle class="a" cx="118" cy="36" r="10" stroke="none"/>
-    <path d="M14 64 Q30 50 46 64 M96 64 Q104 56 112 64"/>
-    <path d="M30 100 V74 Q30 70 34 70 Q38 70 38 74 V100 M30 88 H24 V80 M38 84 H44 V76"/>
-    <path d="M132 96 Q136 92 140 96"/>`);
+    <circle class="a" cx="128" cy="22" r="8" stroke="none" opacity=".7"/>
+    ${[[30,70,6,"#CF7C93"],[58,58,7,"#D9A520"],[88,66,6,"#CF7C93"],[116,56,7,"#8E5BA6"],[140,72,5,"#D9A520"]].map(([x,y,r,c])=>`<path d="M${x} 104 V${y+r}"/>
+      ${[0,72,144,216,288].map(t=>`<circle cx="${(x+Math.cos(t*Math.PI/180)*r*.85).toFixed(1)}" cy="${(y+Math.sin(t*Math.PI/180)*r*.85).toFixed(1)}" r="${(r*.62).toFixed(1)}" style="fill:${c}"/>`).join("")}
+      <circle cx="${x}" cy="${y}" r="${(r*.42).toFixed(1)}" style="fill:#F4D38A"/>
+      <path d="M${x} ${y+r+14} q-8 -2 -10 -8 q8 0 10 8 M${x} ${y+r+22} q8 -2 10 -8 q-8 0 -10 8"/>`).join("")}
+    <path d="M40 46 q-1.6 3 0 4 q1.6 -1 0 -4 Z M74 40 q-1.6 3 0 4 q1.6 -1 0 -4 Z M102 46 q-1.6 3 0 4 q1.6 -1 0 -4 Z" style="fill:#8FB3C9;stroke:#2F78A8" stroke-width="1"/>`);
+  I.desert_road = W(`<path d="M14 62 H146"/>
+    <path class="a" stroke="none" d="M14 62 Q50 54 80 60 Q112 66 146 58 V104 H14 Z" style="fill:#B9D3A8;opacity:.6"/>
+    <path d="M14 62 Q50 54 80 60 Q112 66 146 58"/><path d="M14 80 Q60 70 100 78 Q126 82 146 76" opacity=".6"/>
+    <path d="M76 62 L44 104 M84 62 L116 104" opacity=".7"/>
+    <path d="M22 98 l2 -8 l2 8 M30 100 l2 -10 l2 10 M126 96 l2 -8 l2 8 M136 100 l2 -10 l2 10 M112 88 l1.5 -6 l1.5 6 M40 86 l1.5 -6 l1.5 6"/>
+    <circle class="a" cx="80" cy="54" r="9" stroke="none"/><path d="M80 38 V34 M66 44 L63 41 M94 44 L97 41"/>
+    <path d="M38 30 q3 -3 6 0 q3 -3 6 0 M104 22 q3 -3 6 0 q3 -3 6 0 M120 34 q2 -2 4 0 q2 -2 4 0"/>`);
   I.quiet_church = W(`${ground}
     <path d="M50 104 V56 L80 36 L110 56 V104"/><path d="M68 44 V24 H92 V44"/><path d="M68 24 L80 10 L92 24"/>
     <path d="M70 104 V82 Q80 70 90 82 V104"/><circle cx="80" cy="56" r="8"/><path class="a" stroke="none" d="M80 49 a7 7 0 0 1 0 14 a7 7 0 0 1 0 -14 Z" opacity=".55"/>

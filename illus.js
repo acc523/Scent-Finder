@@ -53,22 +53,30 @@
   // ---------- Q5: characters (same base bust) ----------
   const bust = (extra, mouth = "M75 56 Q80 59 85 56", eyes = `<circle cx="74" cy="47" r="1.3" fill="currentColor"/><circle cx="86" cy="47" r="1.3" fill="currentColor"/>`) =>
     W(`<path d="M40 114 Q42 82 80 78 Q118 82 120 114"/><circle class="p" cx="80" cy="50" r="18"/>${eyes}<path d="${mouth}"/>${extra}`);
-  I.protagonist = bust(`<path d="M62 46 Q62 28 80 30 Q96 30 98 44 Q90 36 78 40 Q68 42 62 46"/>
-    <path d="M56 84 Q80 96 104 84"/><path d="M98 86 L110 112"/><path class="a" stroke="none" d="M80 92 l3 6 l6.5 .8 l-4.8 4.5 l1.2 6.5 l-5.9 -3.1 l-5.9 3.1 l1.2 -6.5 l-4.8 -4.5 l6.5 -.8 Z"/>`, "M74 56 Q80 61 86 56");
-  I.confidant = bust(`<path d="M62 50 Q60 30 80 30 Q100 30 98 50 Q96 40 84 38 Q70 38 62 50"/>
-    <path d="M62 52 Q58 62 60 72"/><path d="M98 52 Q102 62 100 72"/>
-    <path d="M70 100 H90 Q92 112 80 112 Q68 112 70 100"/><path d="M90 102 Q96 102 94 108"/><path d="M76 96 Q74 92 78 88 M84 96 Q82 92 86 88" opacity=".6"/>`,
-    "M76 57 Q80 59 84 57", `<path d="M71 47 Q74 45 77 47"/><path d="M83 47 Q86 45 89 47"/>`);
+  I.protagonist = bust(`<path d="M60 48 Q56 30 70 26 Q76 20 86 24 Q100 24 100 40 Q102 46 98 50 Q96 38 88 36 Q90 42 84 42 Q78 34 70 40 Q66 44 62 50"/>
+    <path d="M86 24 Q92 14 102 16 Q96 20 98 26"/>
+    <path d="M48 92 Q40 104 36 114 M112 92 Q120 104 124 114"/><path d="M48 92 Q80 102 112 92"/>
+    <path d="M62 84 L100 112"/><path d="M96 106 h14 v8 h-14 Z"/>
+    <path class="a" stroke="none" d="M70 90 l2.4 5 l5.4 .6 l-4 3.7 l1 5.4 l-4.8 -2.6 l-4.8 2.6 l1 -5.4 l-4 -3.7 l5.4 -.6 Z"/>`, "M74 56 Q80 61 86 56");
+  I.confidant = bust(`<path d="M62 52 Q58 30 80 30 Q102 30 98 52 Q96 38 80 38 Q66 38 62 52"/><circle cx="80" cy="27" r="7"/>
+    <circle cx="74" cy="48" r="4.6"/><circle cx="86" cy="48" r="4.6"/><path d="M78.6 48 H81.4"/>
+    <path d="M60 82 L80 104 L100 82"/><path d="M80 104 V114"/><circle cx="76" cy="98" r="1.2" fill="currentColor"/>
+    <path d="M100 96 H120 V114 H100 Z"/><path d="M104 102 H116 M104 107 H114"/><path d="M118 92 L124 86"/>
+    <path d="M48 102 H64 Q66 112 56 112 Q46 112 48 102"/><path d="M64 104 Q69 104 67 109"/><path d="M53 98 Q51 94 54 90 M59 98 Q57 94 60 90" opacity=".6"/>`,
+    "M76 57 Q80 59.5 84 57", `<circle cx="74" cy="48" r="1.2" fill="currentColor"/><circle cx="86" cy="48" r="1.2" fill="currentColor"/>`);
   I.wildcard = bust(`<path d="M62 44 L60 30 L68 38 L70 26 L76 36 L80 24 L84 36 L90 26 L92 38 L100 30 L98 44"/>
     <path class="a" stroke="none" d="M66 42 H94 Q96 50 88 52 Q82 52 80 48 Q78 52 72 52 Q64 50 66 42 Z" opacity=".85"/>
     <path d="M100 56 l3 6 l-3 0 l3 6"/><path d="M64 88 l6 6 l6 -6 l6 6 l6 -6 l6 6"/>`, "M74 57 Q80 60 86 55");
-  I.mentor = bust(`<path d="M62 44 Q64 30 80 30 Q96 30 98 44"/><circle cx="74" cy="47" r="5"/><circle cx="86" cy="47" r="5"/><path d="M79 47 H81"/>
-    <path d="M66 58 Q68 72 80 74 Q92 72 94 58"/><path d="M76 62 H84"/>
-    <path d="M64 100 L80 96 L96 100 V112 L80 108 L64 112 Z"/><path d="M80 96 V108"/>`, "M76 64 H84");
-  I.antagonist = bust(`<path d="M60 34 H100"/><path d="M66 34 V12 H94 V34"/><path class="a" stroke="none" d="M66 28 H94 V33 H66 Z"/>
-    <circle cx="86" cy="47" r="4.5"/><path d="M90 50 Q94 62 92 72"/>
-    <path d="M58 84 L66 100 L74 86"/><path d="M102 84 L94 100 L86 86"/>
-    <path d="M70 41 L77 44 M83 44 L90 41"/>`, "M74 57 Q82 60 86 54");
+  I.mentor = bust(`<path d="M62 46 Q62 30 80 30 Q98 30 98 46 Q94 36 80 36 Q66 36 62 46"/><path d="M68 41 L76 41 M84 41 L92 41"/>
+    <path class="a" stroke="none" d="M52 84 Q80 76 108 84 L112 114 H48 Z" style="fill:#1F3A2E"/>
+    <path d="M70 80 H90 V88 H70 Z" class="p"/><path d="M76 81 H84 V87 H76 Z" class="p"/>
+    <path d="M62 98 L80 94 L98 98 V112 L80 108 L62 112 Z" class="p"/><path d="M80 94 V108"/><path d="M71 99 V105 M68 101.5 H74" stroke-width="1.2"/>
+    <path class="a" stroke="none" d="M84 108 l2 6 l2 -6 Z"/>`, "M75 57 Q80 60 85 57");
+  I.antagonist = bust(`<path d="M50 112 L42 70 L64 84"/><path d="M110 112 L118 70 L96 84"/><path class="a" stroke="none" d="M42 70 L64 84 L58 90 Z M118 70 L96 84 L102 90 Z" style="fill:#7A2E3A"/>
+    <path d="M62 46 Q60 30 80 30 Q100 30 98 46 L90 38 L80 46 L70 38 Z"/>
+    <path class="a" stroke="none" d="M64 43 Q80 38 96 43 Q97 51 88 52 Q82 52 80 48 Q78 52 72 52 Q63 51 64 43 Z" style="fill:#1F3A2E"/>
+    <circle cx="74" cy="47" r="1.6" fill="#FBF8F2"/><circle cx="86" cy="47" r="1.6" fill="#FBF8F2"/>
+    <path class="a" stroke="none" d="M80 88 L90 98 L80 110 L70 98 Z"/><path d="M80 88 L90 98 L80 110 L70 98 Z"/><path d="M76 98 H84"/>`, "M73 57 Q80 61 87 54", "");
 
   // ---------- Q9: places ----------
   I.forest_cabin = W(`${ground}
@@ -136,14 +144,15 @@
     <path class="a" stroke="none" d="M55 55 H101 V62 H55 Z" style="fill:currentColor;opacity:.75"/>
     <path d="M68 46 Q62 36 68 26 Q74 16 68 8 M84 46 Q78 36 84 26" opacity=".6"/>
     <ellipse class="a" cx="124" cy="104" rx="5" ry="3" stroke="none"/><ellipse class="a" cx="36" cy="104" rx="5" ry="3" stroke="none"/>`);
-  I.whisky = W(`${tbl}<path d="M52 106 L50 50 H110 L108 106 Z"/>
-    <path class="a" stroke="none" d="M51 76 H109 L108 105 H52 Z" opacity=".75"/><path d="M51 76 H109"/>
-    <rect x="62" y="62" width="16" height="16" rx="2" transform="rotate(-12 70 70)"/><rect x="82" y="58" width="16" height="16" rx="2" transform="rotate(10 90 66)"/>
-    <path d="M118 106 V60 Q118 50 124 46 V34 H134 V46 Q140 50 140 60 V106 Z"/><path d="M118 78 H140 M118 94 H140"/>`);
-  I.hot_chocolate = W(`${tbl}<path d="M50 106 V52 H106 V106 Z"/><path d="M106 62 Q126 62 124 78 Q122 92 106 92"/>
-    <rect class="a" x="58" y="42" width="12" height="12" rx="3" stroke="none"/><rect x="58" y="42" width="12" height="12" rx="3"/>
-    <rect x="74" y="40" width="12" height="12" rx="3"/><rect class="a" x="88" y="44" width="12" height="12" rx="3" stroke="none"/><rect x="88" y="44" width="12" height="12" rx="3"/>
-    <path d="M70 32 Q64 24 70 16 M88 30 Q82 22 88 14" opacity=".6"/><path d="M60 72 H96 M60 82 H96" opacity=".4"/>`);
+  I.whisky = W(`${tbl}<path d="M44 106 L42 56 H94 L92 106 Z"/>
+    <path class="a" stroke="none" d="M43 80 H93 L92 105 H44 Z" style="fill:#A8641E;opacity:.85"/><path d="M43 80 H93"/>
+    <rect x="52" y="66" width="14" height="14" rx="2" transform="rotate(-12 59 73)"/><rect x="70" y="62" width="14" height="14" rx="2" transform="rotate(10 77 69)"/>
+    <path d="M104 106 V50 H136 V106 Z"/><path d="M112 50 V40 H128 V50"/><path d="M114 40 V30 H126 V40"/>
+    <path class="a" stroke="none" d="M105 66 H135 V105 H105 Z" style="fill:#A8641E;opacity:.75"/><path d="M108 70 H132 V88 H108 Z" class="p"/><path d="M112 76 H128 M114 81 H126" stroke-width="1.1"/>`);
+  I.hot_chocolate = W(`${tbl}<path class="a" stroke="none" d="M51 60 H105 V105 H51 Z" style="fill:#5A3220"/><path d="M50 106 V52 H106 V106 Z"/><path d="M106 62 Q126 62 124 78 Q122 92 106 92"/>
+    <path d="M50 60 Q60 64 70 60 Q80 56 90 60 Q100 64 106 60" style="stroke:#5A3220"/>
+    <rect class="p" x="58" y="44" width="12" height="12" rx="3"/><rect class="p" x="74" y="42" width="12" height="12" rx="3"/><rect class="p" x="88" y="46" width="12" height="12" rx="3"/>
+    <path d="M70 34 Q64 26 70 18 M88 32 Q82 24 88 16" opacity=".6"/><path d="M60 80 H96 M60 90 H96" style="stroke:#8A5A3C" opacity=".6"/>`);
   I.red_wine = W(`${tbl}<path d="M60 20 H100 Q104 56 80 66 Q56 56 60 20 Z"/>
     <path class="a" stroke="none" d="M61 38 H99 Q98 58 80 64 Q62 58 61 38 Z"/><path d="M61 38 H99"/>
     <path d="M80 66 V104"/><path d="M66 106 Q80 100 94 106"/>
@@ -173,24 +182,30 @@
     <path d="M94 52 Q90 60 96 66 Q122 58 146 66 Q152 58 148 52"/>
     <path d="M100 76 Q120 70 142 78 M98 92 Q120 86 144 94" opacity=".5"/><path d="M96 112 v4 M104 111 v4 M112 110 v4 M120 109 v4 M128 110 v4 M136 111 v4 M144 112 v4"/>`);
   I.relaxed_lived_in = W(`
-    <path d="M22 24 H62 L66 112 H48 L42 52 L36 112 H18 Z"/><path d="M22 32 H62"/><path d="M42 32 V52"/>
-    <path d="M26 32 Q28 42 36 42 M58 32 Q56 42 48 42"/><path d="M24 96 Q30 100 36 96 M48 96 Q54 100 62 96" opacity=".5"/>
-    <path d="M30 104 l2 -3 M54 104 l2 -3" opacity=".6"/><circle class="a" cx="42" cy="28" r="2" stroke="none"/>
-    <path d="M96 26 L120 22 L144 26 L156 54 L144 58 L140 44 V112 H100 V44 L96 58 L84 54 Z"/>
-    <path d="M110 24 L128 112"/><path d="M130 24 L112 74"/><path d="M110 24 L104 112" opacity=".0"/>
-    <path class="a" stroke="none" d="M110 24 L116 24 L134 112 H128 Z" opacity=".6"/>
-    <path d="M104 60 h2 M104 70 h2 M104 80 h2 M104 90 h2 M104 100 h2 M136 60 h2 M136 70 h2 M136 80 h2 M136 90 h2 M136 100 h2" stroke-width="1.2"/>
-    <path d="M100 84 H112 V96 H100 Z"/>`);
+    <path d="M18 24 H58 L62 112 H44 L38 52 L32 112 H14 Z"/><path d="M18 32 H58"/><path d="M38 32 V52"/>
+    <path d="M22 32 Q24 42 32 42 M54 32 Q52 42 44 42"/><path d="M20 96 Q26 100 32 96 M44 96 Q50 100 58 96" opacity=".5"/>
+    <path d="M26 104 l2 -3 M50 104 l2 -3" opacity=".6"/><circle class="a" cx="38" cy="28" r="2" stroke="none"/>
+    <path class="a" stroke="none" d="M80 28 L104 24 L128 24 L152 28 L156 58 L132 58 L130 108 H82 L80 58 L76 58 Z" style="fill:#2E4A6B;opacity:.88"/>
+    <path d="M100 24 L80 28 L76 58 H86 V108 H128 V58 H156 L152 28 L132 24"/>
+    <path d="M86 58 L84 34 M128 58 L130 34" opacity=".7"/>
+    <path class="p" d="M100 24 L114 66 V108 H106 V68 L94 26 Z M132 24 L114 66 L120 66 L136 26 Z" />
+    <path d="M100 24 L114 66 V108 M132 24 L114 66 M94 26 L106 68 V108 M136 26 L120 66"/>
+    <path d="M82 108 H130"/><path d="M88 100 V108 M126 100 V108" opacity=".6"/>
+    ${[36,46,56].map(y=>`<path d="M80 ${y} h3 M90 ${y} h3 M140 ${y} h3 M150 ${y} h3" style="stroke:#FBF8F2" stroke-width="1.2"/>`).join("")}
+    ${[74,84,94].map(y=>`<path d="M92 ${y} h3 M122 ${y} h3" style="stroke:#FBF8F2" stroke-width="1.2"/>`).join("")}`);
   I.bold_mixed = W(`
-    <path d="M12 112 V50 Q12 38 26 34 L44 28 L62 34 Q76 38 76 50 V112 Z"/>
-    <path d="M12 50 L4 96 H14 M76 50 L84 96 H74"/><path d="M36 30 Q44 38 52 30"/>
-    <path d="M12 104 H76" stroke-width="3"/>
-    <path class="a" stroke="none" d="M28 52 L44 46 L60 52 L56 76 L44 84 L32 76 Z"/><path d="M28 52 L44 46 L60 52 L56 76 L44 84 L32 76 Z"/>
-    <path d="M38 62 L44 58 L50 62 L44 72 Z"/>
-    <path d="M18 92 l8 -6 M18 100 l14 -10 M62 92 l8 -6" opacity=".6"/>
-    <path d="M96 100 Q96 88 106 86 L122 84 Q132 82 136 90 L150 94 Q156 96 156 104 V108 H96 Z"/><path d="M96 108 H156" stroke-width="3"/>
-    <path d="M106 92 l4 4 M114 90 l4 4 M122 88 l4 4"/><path class="a" stroke="none" d="M136 96 h14 v6 h-14 Z"/>
-    <path d="M108 66 V48 H140 V66 Z"/><path d="M114 48 Q114 36 124 36 Q134 36 134 48"/><path class="a" stroke="none" d="M120 52 h8 v6 h-8 Z"/>`);
+    <path class="a" stroke="none" d="M10 112 V50 Q10 38 24 34 L40 28 L56 34 Q70 38 70 50 V112 Z" style="fill:#2A2420"/>
+    <path d="M10 112 V50 Q10 38 24 34 L40 28 L56 34 Q70 38 70 50 V112 Z"/>
+    <path d="M24 34 L34 56 L28 60 M56 34 L46 56 L52 60" style="stroke:#FBF8F2"/>
+    <path d="M44 40 L36 110" style="stroke:#B8913A" stroke-width="2"/>
+    <path d="M10 98 H70" style="stroke:#FBF8F2"/><path class="a" stroke="none" d="M36 95 h8 v6 h-8 Z"/>
+    <path d="M14 62 h10 M56 62 h10" style="stroke:#FBF8F2" opacity=".7"/>
+    <circle class="a" cx="18" cy="44" r="1.6" stroke="none"/><circle class="a" cx="62" cy="44" r="1.6" stroke="none"/>
+    <path d="M104 30 Q96 26 92 34 Q94 42 104 40"/><path d="M136 30 Q144 26 148 34 Q146 42 136 40"/>
+    <path class="a" stroke="none" d="M104 28 Q120 34 136 28 L134 56 H106 Z" style="fill:#CF7C93"/><path d="M104 28 Q120 34 136 28 L134 56 H106 Z"/>
+    <path d="M106 56 Q100 70 96 74 Q120 80 144 74 Q140 70 134 56"/><path d="M96 74 Q92 88 88 92 Q120 100 152 92 Q148 88 144 74"/><path d="M88 92 Q84 104 82 110 Q120 118 158 110 Q156 104 152 92"/>
+    <path d="M96 74 q4 4 8 0 q4 4 8 0 q4 4 8 0 q4 4 8 0 q4 4 8 0 q4 4 8 0 M88 92 q4 4 8 0 q4 4 8 0 q4 4 8 0 q4 4 8 0 q4 4 8 0 q4 4 8 0 q4 4 8 0 q4 4 8 0" opacity=".6"/>
+    ${[[112,66],[126,64],[104,84],[122,86],[140,84],[100,102],[118,104],[138,102]].map(([x,y])=>`<path class="a" stroke="none" d="M${x} ${y+2} l-2.6 -2.6 a1.6 1.6 0 0 1 2.6 -2 a1.6 1.6 0 0 1 2.6 2 Z" style="fill:#7A2E3A"/>`).join("")}`);
 
   // ---------- accord motifs (24x24, coloured on results) ----------
   const M = (body) => `<g fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${body}</g>`;
@@ -214,20 +229,90 @@
   I.p_sweet = S(`<path d="M24 34 H56 V66 Q56 72 50 72 H30 Q24 72 24 66 Z"/><path d="M22 28 H58 V34 H22 Z"/><path class="a" stroke="none" d="M25 46 H55 V66 Q55 71 50 71 H30 Q25 71 25 66 Z"/><path d="M40 28 V12"/><path d="M34 14 H46 M33 19 H47 M35 24 H45"/>`);
   I.p_dry = S(`<path d="M26 12 H54 Q58 38 40 46 Q22 38 26 12 Z"/><path class="a" stroke="none" d="M27 26 H53 Q52 40 40 44 Q28 40 27 26 Z" style="fill:#7a2e3a"/><path d="M40 46 V68 M30 70 Q40 66 50 70"/>`);
   I.p_airy = S(`<path d="M16 12 H64"/><path d="M20 12 Q28 40 18 70 M30 12 Q36 40 28 70 M50 12 Q44 40 52 70 M60 12 Q52 40 62 70"/><path class="a" stroke="none" d="M36 30 l4 -4 l4 4 l-4 4 Z" opacity=".6"/>`);
-  I.p_dense = S(`<path d="M14 12 H66"/><path d="M18 12 Q16 40 14 70 H66 Q64 40 62 12"/><path d="M26 12 Q28 40 24 70 M36 12 Q38 40 34 70 M46 12 Q44 40 46 70 M56 12 Q54 40 56 70"/><path class="a" stroke="none" d="M15 62 H65 V70 H14 Z" opacity=".8"/>`);
-  I.p_soft = S(`<circle cx="40" cy="42" r="22"/><path d="M22 32 Q40 46 58 30 M20 44 Q40 58 60 42 M26 56 Q40 64 54 56"/><path d="M58 52 Q70 62 66 72"/><circle class="a" cx="66" cy="72" r="2.5" stroke="none"/>`);
+  I.p_dense = S(`${[14,22,30,38,46,54,62].map((y,i)=>`<path class="a" stroke="none" d="M${12+i%2*2} ${y} H${68-i%2*2} V${y+7} H${12+i%2*2} Z" style="fill:${["#5A3220","#7A2E3A","#1F3A2E","#6B4F2A","#5A3220","#7A2E3A","#1F3A2E"][i]};opacity:.9"/><path d="M${12+i%2*2} ${y} H${68-i%2*2} V${y+7} H${12+i%2*2} Z"/>`).join("")}
+    <path d="M12 70 H68"/>`);
+  I.p_soft = S(`<circle class="a" cx="36" cy="40" r="22" stroke="none" style="fill:#EAD3C2"/><circle cx="36" cy="40" r="22"/>
+    <path d="M16 32 Q36 46 56 30 M15 40 Q36 54 57 38 M17 48 Q36 60 56 46 M22 56 Q36 64 50 56 M20 24 Q36 36 52 22 M26 19 Q36 26 46 18"/>
+    <path d="M24 20 Q20 40 24 60 M32 18 Q28 40 32 62 M42 18 Q46 40 42 62 M50 22 Q54 40 50 58" opacity=".55"/>
+    <path d="M56 50 Q66 54 64 62 Q62 70 70 72 Q76 74 74 78"/><path d="M58 46 Q70 50 68 58" opacity=".6"/>`);
   I.p_sharp = S(`<path d="M20 32 L30 18 H50 L60 32 L40 66 Z"/><path d="M20 32 H60 M30 18 L36 32 L40 66 M50 18 L44 32 L40 66 M36 32 L40 18 L44 32"/><path class="a" stroke="none" d="M30 18 L36 32 H20 Z" opacity=".6"/>`);
   I.p_smooth = S(`<path d="M40 14 Q60 14 62 42 Q62 68 40 68 Q18 68 18 42 Q20 14 40 14 Z"/><path d="M28 30 Q40 40 36 56" opacity=".4"/><path class="a" stroke="none" d="M30 22 Q36 18 40 20 Q34 24 30 30 Z" opacity=".7"/>`);
   I.p_smoky = S(`<path d="M16 70 L64 60 M16 60 L64 70"/><path class="a" stroke="none" d="M28 62 Q26 48 36 42 Q36 52 40 50 Q40 38 48 32 Q48 46 54 52 Q54 62 48 64 Z"/><path d="M38 28 Q32 20 38 12 M48 24 Q44 18 48 10" opacity=".6"/>`);
-  I.p_harmony = S(`<circle cx="28" cy="56" r="7"/><circle cx="56" cy="50" r="7"/><path d="M35 56 V20 L63 14 V50"/><path d="M35 28 L63 22"/><path class="a" stroke="none" d="M21 56 a7 7 0 0 0 14 0 a7 7 0 0 0 -14 0 Z M49 50 a7 7 0 0 0 14 0 a7 7 0 0 0 -14 0 Z"/>`);
-  I.p_tension = S(`<path class="a" stroke="none" d="M44 8 L22 44 H38 L32 72 L58 32 H42 Z"/><path d="M44 8 L22 44 H38 L32 72 L58 32 H42 Z"/>`);
+  I.p_harmony = S(`<path d="M8 24 H72 M8 32 H72 M8 40 H72 M8 48 H72 M8 56 H72" opacity=".45"/>
+    <path d="M40 72 Q34 74 34 68 Q34 64 39 65 M40 72 Q44 70 43 60 L37 8 Q44 12 44 20 Q44 30 32 40 Q24 48 30 56 Q36 62 46 58 Q52 54 48 46 Q44 40 38 44 Q34 48 38 52" stroke-width="2.4"/>
+    <circle class="a" cx="37" cy="69" r="3.2" stroke="none"/>`);
+  I.p_tension = S(`<path d="M8 24 H72 M8 32 H72 M8 40 H72 M8 48 H72 M8 56 H72" opacity=".45"/>
+    <path class="a" stroke="none" d="M18 18 H25 V62 H18 Z" style="fill:#1F3A2E"/><path d="M29 18 V62" stroke-width="2"/>
+    <path d="M30 40 L36 34 Q36 22 44 20 Q54 18 54 28 Q54 36 46 36 Q42 36 42 32 M30 40 L36 46 Q36 58 44 60 Q54 62 54 52 Q54 44 46 44 Q42 44 42 48" stroke-width="2.2"/>
+    <text x="60" y="34" font-family="Georgia,serif" font-size="13" font-weight="700" fill="#B8913A" stroke="none">7</text><text x="60" y="52" font-family="Georgia,serif" font-size="13" font-weight="700" fill="#B8913A" stroke="none">8</text>`);
   I.p_familiar = S(`<path d="M14 40 L40 16 L66 40"/><path d="M20 36 V68 H60 V36"/><path d="M34 68 V50 H46 V68"/><path class="a" stroke="none" d="M26 44 H34 V52 H26 Z M46 44 H54 V52 H46 Z"/><path d="M52 24 V14 H58 V30"/>`);
-  I.p_strange = S(`<circle cx="40" cy="40" r="26"/><path class="a" stroke="none" d="M40 18 L46 40 L40 62 L34 40 Z" opacity=".85"/><path d="M40 18 L46 40 L40 62 L34 40 Z"/><circle cx="40" cy="40" r="2.5" fill="currentColor"/><path d="M40 10 V14 M40 66 V70 M10 40 H14 M66 40 H70"/>`);
+  I.p_strange = S(`<circle cx="40" cy="40" r="30"/><circle cx="40" cy="40" r="25" stroke-dasharray="1 3"/>
+    <path class="a" stroke="none" d="M40 16 L45 40 L35 40 Z" style="fill:#7A2E3A"/><path class="a" stroke="none" d="M40 64 L45 40 L35 40 Z"/>
+    <path d="M40 16 L45 40 L40 64 L35 40 Z"/><circle cx="40" cy="40" r="2.2" fill="currentColor"/>
+    <path d="M27 27 L31 31 M53 27 L49 31 M27 53 L31 49 M53 53 L49 49" opacity=".6"/>
+    ${[["N",40,9],["S",40,77],["W",4.5,43],["E",75.5,43]].map(([t,x,y])=>`<text x="${x}" y="${y}" text-anchor="middle" font-family="Georgia,serif" font-size="9" font-weight="700" fill="currentColor" stroke="none">${t}</text>`).join("")}`, );
 
   // Front page emblem (neutral, no perfume hint)
   I.emblem = W(`<circle cx="80" cy="60" r="44"/><circle cx="80" cy="60" r="38" stroke-dasharray="1 4"/>
     <path d="M80 30 Q66 44 70 60 Q74 76 80 90 Q86 76 90 60 Q94 44 80 30 Z"/><path class="a" stroke="none" d="M80 38 Q71 50 74 60 Q77 72 80 82 Q83 72 86 60 Q89 50 80 38 Z" opacity=".55"/>
     <path d="M36 60 H22 M124 60 H138 M80 16 V8 M80 104 V112"/>`);
+
+  // ---------- Q8: endings, a pair of characters acting it out ----------
+  // fig(x, sex, mouth, extra): head r9 at (x,40); "m" short hair + trousers, "f" long hair + dress
+  const fig = (x, sex, mouth, arms, extra = "") => {
+    const hair = sex === "f"
+      ? `<path d="M${x-10} 44 Q${x-12} 28 ${x} 28 Q${x+12} 28 ${x+10} 44 Q${x+12} 54 ${x+8} 58 M${x-10} 44 Q${x-12} 54 ${x-8} 58"/><path class="a" stroke="none" d="M${x-9} 36 Q${x} 26 ${x+9} 36 Q${x} 32 ${x-9} 36 Z" style="fill:#7A2E3A"/>`
+      : `<path d="M${x-9} 38 Q${x-8} 28 ${x} 29 Q${x+9} 28 ${x+9} 38 Q${x+2} 33 ${x-9} 38 Z" class="a" stroke="none" style="fill:#1F3A2E"/>`;
+    const body = sex === "f"
+      ? `<path d="M${x-6} 52 L${x-16} 98 H${x+16} L${x+6} 52 Z" class="p"/><path d="M${x-6} 52 L${x-16} 98 H${x+16} L${x+6} 52"/><path d="M${x-5} 98 V110 M${x+5} 98 V110"/>`
+      : `<path d="M${x-9} 52 H${x+9} V82 H${x-9} Z" class="p"/><path d="M${x-9} 52 H${x+9} V82 H${x-9} Z"/><path d="M${x-7} 82 L${x-7} 110 M${x+7} 82 L${x+7} 110 M${x} 82 V96"/>`;
+    return `${body}<circle class="p" cx="${x}" cy="40" r="9"/>${hair}<circle cx="${x-3}" cy="40" r="1.1" fill="currentColor"/><circle cx="${x+3}" cy="40" r="1.1" fill="currentColor"/><path d="${mouth(x)}"/>${arms}${extra}`;
+  };
+  const smile = x => `M${x-3} 44 Q${x} 47 ${x+3} 44`, flat = x => `M${x-2.5} 45 H${x+2.5}`, oh = x => `M${x} 46 m-2 0 a2 2.4 0 1 0 4 0 a2 2.4 0 1 0 -4 0`;
+  I.end_resolved = W(`<path d="M10 110 H150"/>
+    ${fig(58,"m",smile,`<path d="M50 56 L44 76 M66 56 L80 72"/>`)}${fig(102,"f",smile,`<path d="M96 56 L80 72 M108 56 L116 76"/>`)}
+    <circle class="a" cx="80" cy="72" r="2.5" stroke="none"/>
+    <path class="a" stroke="none" d="M80 22 l-6 -6 a3.6 3.6 0 0 1 6 -4.6 a3.6 3.6 0 0 1 6 4.6 Z" style="fill:#C2473A"/>`);
+  I.end_bittersweet = W(`<path d="M10 110 H150"/>
+    ${fig(54,"m",smile,`<path d="M46 56 L40 78 M62 56 L72 40 L70 30 M72 40 L78 34"/>`)}${fig(108,"f",smile,`<path d="M102 56 L94 78 M114 56 L118 78"/>`,`<path class="a" stroke="none" d="M112 45 q-1.6 3 0 4 q1.6 -1 0 -4 Z" style="fill:#2F78A8"/>`)}
+    <path d="M80 30 Q86 40 80 50 Q76 58 82 66" stroke-dasharray="2 3" opacity=".6"/>
+    <path class="a" stroke="none" d="M132 20 q6 4 2 10 q-6 -2 -2 -10 Z" style="fill:#CF7C93"/><path class="a" stroke="none" d="M124 34 q5 3 1 8 q-5 -2 -1 -8 Z" style="fill:#CF7C93"/>`);
+  I.end_open = W(`<path d="M10 110 H96"/><path d="M96 110 L150 70" opacity=".6"/><path d="M104 110 L150 82" opacity=".6"/>
+    ${fig(36,"m",flat,`<path d="M28 56 L22 76 M44 56 L56 66 L60 56"/>`)}${fig(74,"f",smile,`<path d="M68 56 L62 76 M80 56 L94 64"/>`)}
+    <path d="M118 104 V30 H146 V96"/><path d="M118 30 L132 38 V110 L118 104" class="p"/><path d="M118 30 L132 38 V110 L118 104"/><circle cx="128" cy="74" r="1.5" fill="currentColor"/>
+    <path class="a" stroke="none" d="M133 38 L146 30 V96 L133 110 Z" opacity=".45"/>
+    <path d="M56 26 q0 -6 5 -6 q5 0 5 5 q0 4 -5 5 v3 M61 37 v.5" stroke-width="1.8"/>`);
+  I.end_twist = W(`<path d="M10 110 H150"/>
+    ${fig(54,"m",oh,`<path d="M46 56 L36 40 M62 56 L72 40"/>`)}${fig(106,"f",oh,`<path d="M100 56 L90 40 M112 56 L122 40"/>`)}
+    <path class="a" stroke="none" d="M78 12 h6 l-1 16 h-4 Z M78.5 32 h5 v5 h-5 Z" style="fill:#7A2E3A"/>
+    <path d="M30 22 l4 4 M26 32 h5 M128 22 l-4 4 M132 32 h-5"/>
+    <path d="M80 60 Q72 66 80 72 Q88 78 80 84 Q74 88 78 94" opacity=".6"/>`);
+
+  // ---------- front page: the scent pyramid (top / heart / base) ----------
+  I.pyramid = `<svg viewBox="0 0 360 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Top, heart and base notes">
+    <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M180 8 Q172 0 180 -8" opacity=".0"/>
+      <path d="M176 40 Q168 30 176 20 Q184 10 176 2 M188 42 Q182 34 188 26" opacity=".55"/>
+      <path d="M180 48 L148 104 H212 Z" fill="#F2DC8C"/>
+      <path d="M148 104 L112 168 H248 L212 104 Z" fill="#EDB9C4"/>
+      <path d="M112 168 L74 236 H286 L248 168 Z" fill="#C9A27A"/>
+      <path d="M180 48 L74 236 H286 Z" stroke-width="2.2"/>
+      <g transform="translate(166 74) scale(.62)" stroke="#9A7A10"><circle cx="12" cy="12" r="9" fill="#F6E7A8"/><path d="M12 3 V21 M3 12 H21 M5.6 5.6 L18.4 18.4 M18.4 5.6 L5.6 18.4"/></g>
+      <g transform="translate(184 86) scale(.5)" stroke="#3F7A4B"><path d="M4 20 Q4 6 20 4 Q20 20 4 20 Z" fill="#B9D3A8"/><path d="M4 20 L16 8"/></g>
+      <path d="M158 96 l2 -4 l2 4 l-2 4 Z M198 70 l1.5 -3 l1.5 3 l-1.5 3 Z" fill="#B8913A" stroke="none"/>
+      <g transform="translate(140 122) scale(1.1)" stroke="#8E3B52"><circle cx="12" cy="12" r="2.5" fill="#F4D38A"/><path d="M12 9.5 Q9 2 12 2 Q15 2 12 9.5 M14.5 12 Q22 9 22 12 Q22 15 14.5 12 M12 14.5 Q15 22 12 22 Q9 22 12 14.5 M9.5 12 Q2 15 2 12 Q2 9 9.5 12" fill="#F7D3DC"/></g>
+      <g transform="translate(184 128) scale(.9)" stroke="#8E3B52"><circle cx="12" cy="12" r="2.5" fill="#F4D38A"/><path d="M12 9.5 Q9 2 12 2 Q15 2 12 9.5 M14.5 12 Q22 9 22 12 Q22 15 14.5 12 M12 14.5 Q15 22 12 22 Q9 22 12 14.5 M9.5 12 Q2 15 2 12 Q2 9 9.5 12" fill="#F7D3DC"/></g>
+      <g stroke="#5A3A22"><path d="M110 214 H170 Q176 206 170 198 H110 Q104 206 110 214 Z" fill="#9C6B43"/><ellipse cx="170" cy="206" rx="5" ry="8" fill="#D8B48A"/><path d="M168 206 a2 3 0 1 0 4 0" /><path d="M120 204 H150 M126 210 H158" opacity=".6"/></g>
+      <g stroke="#3B2A1A"><path d="M196 214 Q214 196 246 200 Q230 206 196 214 Z" fill="#4A2E1C"/><path d="M204 208 Q220 202 238 202" opacity=".5"/></g>
+      <path d="M236 196 Q230 186 236 178 Q242 170 236 162" stroke="#55524E" opacity=".7"/>
+    </g>
+    <g font-family="Jost, system-ui, sans-serif" font-size="10" letter-spacing="2.4" fill="#1F3A2E" stroke="none">
+      <path d="M206 78 H250" stroke="#B8913A" fill="none"/><text x="256" y="76">TOP</text><text x="256" y="89" font-size="8.5" letter-spacing="1" fill="#4B5F55">how you arrive</text>
+      <path d="M232 138 H270" stroke="#B8913A" fill="none"/><text x="276" y="136">HEART</text><text x="276" y="149" font-size="8.5" letter-spacing="1" fill="#4B5F55">who you are</text>
+      <path d="M264 204 H292" stroke="#B8913A" fill="none"/><text x="298" y="202">BASE</text><text x="298" y="215" font-size="8.5" letter-spacing="1" fill="#4B5F55">what lingers</text>
+    </g>
+    <path d="M60 252 H300" stroke="#B8913A" stroke-width="1"/><path d="M180 246 l6 6 l-6 6 l-6 -6 Z" fill="#F4EFE6" stroke="#B8913A"/>
+  </svg>`;
 
   window.ILLUS = I;
 })();

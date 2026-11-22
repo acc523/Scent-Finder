@@ -16,7 +16,7 @@
   const Q = [
     // ===== FIRST IMPRESSIONS (top notes) =====
     { id:"q1_walk_in", layer:"top", section:"Top notes · First impressions",
-      title:"When you walk into a room, people should feel…",
+      title:"When you walk into a room, you'd want the people in it to feel…",
       options:[
         { v:"full_of_life", e:"🎉", label:"Full of life", a:{citrus:2,fruity:2}, x:{sharp:.2}, p:.6, frag:"full of life, like the lights just came on" },
         { v:"at_ease", e:"🕊️", label:"At ease", a:{clean:2,aquatic:1,floral:1}, x:{dense:-.3,sharp:-.3}, p:-.3, frag:"at ease, like someone opened a window" },
@@ -75,7 +75,7 @@
 
     // ===== WHAT LINGERS =====
     { id:"q7_after_leave", layer:"base", section:"Base notes · What lingers",
-      title:"After you leave, people feel…",
+      title:"After you leave the room, the people you've just left feel…",
       options:[
         { v:"comforted", e:"🫶", label:"Comforted", a:{sweet:2,clean:1,woody:1}, x:{sharp:-.3}, frag:"comforted, without being able to say why" },
         { v:"quieter", e:"🌙", label:"Like the room got quieter", a:{woody:2,earthy:1}, x:{dense:.1,sharp:-.2}, frag:"aware of the quiet you left behind" },
@@ -83,18 +83,18 @@
         { v:"lighter", e:"🎈", label:"Lighter", a:{citrus:2,clean:1,aquatic:1}, x:{dense:-.4}, frag:"lighter than before you arrived" },
         { v:"intrigued", e:"🕯️", label:"Intrigued, and a little unsure", a:{smoky:2,earthy:1}, x:{tension:.4,strange:.3}, frag:"intrigued, and not quite sure what happened" }
       ]},
-    { id:"q8_ending", layer:"base", section:"Base notes · What lingers",
+    { id:"q8_ending", layer:"base", section:"Base notes · What lingers", grid:"pics",
       title:"In a book or a film, the ending you like best is…",
       options:[
-        { v:"resolved", e:"🎀", label:"Resolved: everything ties up", a:{sweet:1,woody:1,clean:1}, x:{tension:-.4,smoky:-.2} },
-        { v:"bittersweet", e:"🥀", label:"Bittersweet: happy and sad at once", a:{green:1,floral:1,sweet:1}, x:{tension:.3} },
-        { v:"open", e:"🚪", label:"Open: you decide what happens", a:{herbal:1,clean:1}, x:{dense:-.3,strange:.2} },
-        { v:"twist", e:"🔀", label:"A twist you didn't see coming", a:{smoky:1,spicy:1}, x:{tension:.5,strange:.4} }
+        { v:"resolved", img:"end_resolved", e:"🎀", label:"Resolved", sub:"everything ties up", a:{sweet:1,woody:1,clean:1}, x:{tension:-.4,smoky:-.2} },
+        { v:"bittersweet", img:"end_bittersweet", e:"🥀", label:"Bittersweet", sub:"happy and sad at once", a:{green:1,floral:1,sweet:1}, x:{tension:.3} },
+        { v:"open", img:"end_open", e:"🚪", label:"Open", sub:"you decide what happens next", a:{herbal:1,clean:1}, x:{dense:-.3,strange:.2} },
+        { v:"twist", img:"end_twist", e:"🔀", label:"A twist", sub:"you didn't see it coming", a:{smoky:1,spicy:1}, x:{tension:.5,strange:.4} }
       ]},
 
     // ===== PLACES =====
     { id:"q9_place", section:"Mood · Places & senses", grid:"pics",
-      title:"You're suddenly somewhere that fits you perfectly. You take a deep breath. Where are you?",
+      title:"You're suddenly teleported somewhere that fits you perfectly. You take a deep breath. Where are you?",
       options:[
         { v:"forest_cabin", img:"forest_cabin", e:"🌲", label:"A cabin in a pine forest", a:{woody:3,smoky:1,green:1} },
         { v:"beach_dawn", img:"beach_dawn", e:"🌅", label:"A beach at dawn", a:{aquatic:3,citrus:1,clean:1}, x:{dense:-.4} },
@@ -435,15 +435,14 @@
 
   // ---------- RESULTS ----------
   function logoEl(brand) {
-    const box = el("div", { class:"mark" }, el("span", {}, initials(brand)));
+    const box = el("div", { class:"mark word" }, el("span", {}, brand));
     const d = BRAND_DOMAIN[brand]; if (!d) return box;
     const sources = [];
     if (CFG.BRANDFETCH_CLIENT_ID) sources.push(`https://cdn.brandfetch.io/domain/${d}/w/400/h/160/theme/dark/fallback/404/type/logo?c=${CFG.BRANDFETCH_CLIENT_ID}`);
-    sources.push(`https://www.google.com/s2/favicons?domain=${d}&sz=128`);
     const tryNext = () => {
       const src = sources.shift(); if (!src) return;
       const img = el("img", { alt:`${brand} logo`, referrerpolicy:"no-referrer" });
-      img.addEventListener("load", () => { if (img.naturalWidth >= 16) { box.innerHTML = ""; box.classList.toggle("wide", img.naturalWidth > img.naturalHeight*1.4); box.append(img); } else tryNext(); });
+      img.addEventListener("load", () => { if (img.naturalWidth >= 32) { box.innerHTML = ""; box.classList.remove("word"); box.classList.toggle("wide", img.naturalWidth > img.naturalHeight*1.4); box.append(img); } else tryNext(); });
       img.addEventListener("error", tryNext);
       img.src = src;
     };
@@ -549,7 +548,7 @@
   window.ScentFinder = { Q, SLIDERS, rank, buildProfile, narrative, payload, perfumeAxes, matchFavourites, HEADERS };
 
   if (typeof document !== "undefined" && document.getElementById("start")) {
-    if (IL.emblem) $("#emblem").innerHTML = IL.emblem;
+    if (IL.pyramid) $("#emblem").innerHTML = IL.pyramid;
     const nameIn = $("#first-name"), start = $("#start");
     const sync = () => { start.disabled = nameIn.value.trim().length < 1; };
     nameIn.addEventListener("input", sync); sync();

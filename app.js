@@ -439,10 +439,13 @@
     const d = BRAND_DOMAIN[brand]; if (!d) return box;
     const sources = [];
     if (CFG.BRANDFETCH_CLIENT_ID) sources.push(`https://cdn.brandfetch.io/domain/${d}/w/400/h/160/theme/dark/fallback/404/type/logo?c=${CFG.BRANDFETCH_CLIENT_ID}`);
+    // Live site icons, used until a Brandfetch client ID is set (and for brands Brandfetch lacks)
+    sources.push(`https://www.google.com/s2/favicons?domain=${d}&sz=128`);
+    sources.push(`https://icons.duckduckgo.com/ip3/${d}.ico`);
     const tryNext = () => {
       const src = sources.shift(); if (!src) return;
       const img = el("img", { alt:`${brand} logo`, referrerpolicy:"no-referrer" });
-      img.addEventListener("load", () => { if (img.naturalWidth >= 32) { box.innerHTML = ""; box.classList.remove("word"); box.classList.toggle("wide", img.naturalWidth > img.naturalHeight*1.4); box.append(img); } else tryNext(); });
+      img.addEventListener("load", () => { if (img.naturalWidth >= 16) { box.innerHTML = ""; box.classList.remove("word"); box.classList.toggle("wide", img.naturalWidth > img.naturalHeight*1.4); box.append(img); } else tryNext(); });
       img.addEventListener("error", tryNext);
       img.src = src;
     };

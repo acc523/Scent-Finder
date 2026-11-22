@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Character Study</title>
-<meta name="description" content="A short questionnaire about rooms, rituals and the way you move through the world.">
+<title>The Character Study · A scent questionnaire</title>
+<meta name="description" content="A psychological mapping test that finds the scents that suit you, at every price.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -74,24 +74,38 @@
   .art .a { fill:var(--gold); } .art .p { fill:var(--paper2); }
   textarea { width:100%; max-width:540px; font-family:var(--serif); font-size:20px; padding:16px; border:1px solid var(--line); background:var(--paper2); color:var(--ink); text-align:center; border-radius:0; }
 
-  /* five-step slider */
+  /* five-stop slider */
   .slider { max-width:640px; margin:0 auto; }
   .poles { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-  .pole { background:var(--paper2); border:1px solid var(--line); padding:16px 12px 14px; transition:all .25s; opacity:.92; }
+  .pole { background:var(--paper2); border:1px solid var(--line); padding:16px 12px 14px; transition:all .25s; }
   .pole .art { width:86px; margin:0 auto; color:var(--ink); }
   .pole h3 { margin:6px 0 6px; font-weight:500; font-size:24px; }
   .pole ul { list-style:none; padding:0; margin:0; font-family:var(--sans); font-weight:300; font-size:13px; color:var(--ink-soft); line-height:1.7; }
-  .lean-l .pole.l, .lean-r .pole.r { background:#fffdf8; border-color:var(--gold); box-shadow:0 0 0 4px var(--gold-soft); opacity:1; }
-  .lean-l .pole.r, .lean-r .pole.l { opacity:.45; }
+  .lean-l .pole.l, .lean-r .pole.r { background:#fffdf8; border-color:var(--gold); box-shadow:0 0 0 4px var(--gold-soft); }
+  .lean-l .pole.r, .lean-r .pole.l { opacity:.42; }
   .strong.lean-l .pole.l, .strong.lean-r .pole.r { background:var(--gold-soft); box-shadow:0 0 0 6px var(--gold-soft), 0 0 0 7px var(--gold); }
-  .track-wrap { position:relative; margin:30px 8% 0; height:34px; }
-  .rail { position:absolute; left:0; right:0; top:50%; height:1px; background:var(--ink); }
-  .track { position:relative; display:flex; justify-content:space-between; align-items:center; height:100%; }
-  .dot { width:22px; height:22px; border-radius:50%; background:var(--paper); border:1px solid var(--ink); padding:0; transition:transform .15s, background .15s; }
-  .dot:nth-child(3) { width:16px; height:16px; }
-  .dot:hover { transform:scale(1.2); }
-  .dot.on { background:var(--gold); border-color:var(--gold); transform:scale(1.35); box-shadow:0 0 0 4px var(--gold-soft); }
+  .track-wrap { position:relative; margin:30px 6% 0; height:44px; }
+  .ticks { position:absolute; inset:0 0; display:flex; justify-content:space-between; align-items:center; pointer-events:none; }
+  .tick { pointer-events:auto; width:14px; height:14px; border-radius:50%; border:1px solid var(--ink); background:var(--paper); padding:0; margin:0 4px; z-index:1; }
+  .tick:nth-child(3) { width:10px; height:10px; }
+  .tick.on { opacity:0; }
+  input[type=range] { -webkit-appearance:none; appearance:none; position:absolute; left:-4px; right:-4px; top:50%; transform:translateY(-50%); width:calc(100% + 8px); height:44px; background:transparent; margin:0; z-index:2; cursor:grab; touch-action:pan-y; }
+  input[type=range]::-webkit-slider-runnable-track { height:1px; background:linear-gradient(90deg, var(--ink), var(--ink)); }
+  input[type=range]::-moz-range-track { height:1px; background:var(--ink); }
+  input[type=range]::-webkit-slider-thumb { -webkit-appearance:none; width:30px; height:30px; border-radius:50%; background:var(--paper2); border:1.5px solid var(--ink); margin-top:-15px; box-shadow:0 1px 4px rgba(0,0,0,.15); transition:background .15s, transform .15s; }
+  input[type=range]::-moz-range-thumb { width:28px; height:28px; border-radius:50%; background:var(--paper2); border:1.5px solid var(--ink); }
+  .set input[type=range]::-webkit-slider-thumb { background:var(--gold); border-color:var(--gold); box-shadow:0 0 0 5px var(--gold-soft); }
+  .set input[type=range]::-moz-range-thumb { background:var(--gold); border-color:var(--gold); }
+  input[type=range]:active { cursor:grabbing; }
+  .ticks .tick { position:relative; }
   .caption { font-family:var(--sans); text-transform:uppercase; letter-spacing:.2em; font-size:11px; color:var(--gold); min-height:16px; margin-top:14px; }
+  .slider:not(.set) .caption { color:var(--ink-soft); opacity:.6; }
+
+  /* favourites */
+  .favs { display:grid; gap:10px; max-width:460px; margin:0 auto; }
+  .favs input { font-family:var(--serif); font-size:21px; text-align:center; padding:10px; border:0; border-bottom:1px solid var(--ink); background:transparent; color:var(--ink); outline:none; }
+  .favs input::placeholder { color:#b3a891; font-style:italic; }
+  .favs .add { justify-self:center; background:none; border:0; font-family:var(--sans); text-transform:uppercase; letter-spacing:.2em; font-size:11px; color:var(--gold); padding:10px; }
 
   /* results */
   h1.sig { font-size:clamp(32px,5.4vw,50px); max-width:760px; margin:10px auto; }
@@ -109,7 +123,7 @@
   .card .brand { font-family:var(--sans); text-transform:uppercase; letter-spacing:.24em; font-size:10.5px; color:var(--ink-soft); margin:4px 0 2px; }
   .card h3 { font-weight:500; font-size:24px; margin:2px 0 6px; line-height:1.15; }
   .card.big h3 { font-size:28px; }
-  .card .tier { font-family:var(--sans); font-size:11px; letter-spacing:.12em; color:var(--gold); text-transform:uppercase; margin:0 0 10px; }
+  .card .tier { font-family:var(--sans); font-size:11px; letter-spacing:.12em; color:var(--t); text-transform:uppercase; margin:0 0 10px; }
   .card .blurb { font-size:17px; margin:0 0 10px; }
   .card .notes { font-family:var(--sans); font-weight:300; font-size:12.5px; color:var(--ink-soft); margin:0; }
   .tier-row { margin:34px 0; }
@@ -118,7 +132,34 @@
   .avoid { font-style:italic; font-size:18px; color:var(--ink-soft); }
   .fine { font-family:var(--sans); font-weight:300; font-size:11.5px; color:var(--ink-soft); margin-top:50px; }
 
+  .submast { font-family:var(--sans); font-weight:300; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); }
+  .pname { font-size:clamp(40px,7vw,60px); font-weight:500; margin:2px 0 8px; font-style:italic; color:var(--wine); }
+  .portrait { width:min(320px,82vw); margin:0 auto; }
+  .portrait svg { width:100%; height:auto; display:block; }
+  .portrait .a { fill:var(--gold); } .portrait .p { fill:#FBF8F2; }
+  .ptitle { font-family:var(--sans); text-transform:uppercase; letter-spacing:.24em; font-size:12px; margin:14px 0 0; }
+  .pyramid { display:flex; flex-direction:column; align-items:center; gap:8px; max-width:600px; margin:0 auto; }
+  .prow { background:var(--paper2); border:1px solid var(--line); padding:12px 10px; }
+  .plabel { display:block; font-family:var(--sans); text-transform:uppercase; letter-spacing:.2em; font-size:10px; color:var(--ink-soft); margin-bottom:8px; }
+  .chips { display:flex; flex-wrap:wrap; justify-content:center; gap:6px; }
+  .chip { --c:#999; font-family:var(--sans); font-size:12px; padding:4px 11px; border-radius:999px; color:#fff; background:var(--c); }
+  .bars { max-width:520px; margin:26px auto 0; display:grid; gap:8px; }
+  .bar { display:grid; grid-template-columns:120px 1fr 40px; align-items:center; gap:10px; font-family:var(--sans); font-size:12.5px; }
+  .bl { text-align:right; color:var(--ink-soft); } .bp { text-align:left; color:var(--ink-soft); }
+  .bt { height:10px; background:var(--line); border-radius:999px; overflow:hidden; display:block; }
+  .bf { display:block; height:100%; border-radius:999px; }
+  .card { --t:#999; border-top:4px solid var(--t); position:relative; padding-top:30px; }
+  .tbadge { --t:#999; position:absolute; top:-1px; left:50%; transform:translate(-50%,-50%); background:var(--t); color:#fff; font-family:var(--sans); text-transform:uppercase; letter-spacing:.16em; font-size:9.5px; padding:5px 11px; white-space:nowrap; }
+  .card .chips { margin:8px 0 10px; } .card .chip { font-size:10.5px; padding:3px 9px; }
+  .mark.wide { width:auto; max-width:180px; height:56px; border-radius:0; border:0; background:transparent; padding:0 6px; }
+  .mark.wide img { width:auto; height:auto; max-width:170px; max-height:44px; }
+  .tier-row { --t:#999; margin:44px 0; padding-top:18px; border-top:1px solid var(--line); }
+  .thead { display:flex; flex-direction:column; align-items:center; gap:6px; }
+  .tnum { background:var(--t); color:#fff; font-family:var(--sans); text-transform:uppercase; letter-spacing:.24em; font-size:11px; padding:5px 14px; }
+  .tier-row .card .tbadge { display:none; } .tier-row .card { padding-top:24px; }
+
   @media (max-width:520px) {
+    .bar { grid-template-columns:96px 1fr 34px; }
     .opts.pics { grid-template-columns:1fr 1fr; gap:10px; }
     .opts.chars .opt { flex:0 1 calc(50% - 6px); }
     .opt.pic .lbl { font-size:16px; } .opt.pic .sub { font-size:11.5px; }
@@ -130,13 +171,15 @@
 <body>
 <div class="wrap">
   <div class="mast">The Character Study</div>
+  <div class="submast">Scent, mapped from personality</div>
 
   <section id="intro">
     <div id="emblem"></div>
-    <p class="eyebrow">No. 01 · A short questionnaire</p>
+    <p class="eyebrow">A scent questionnaire</p>
     <h1>Who are you, <em>really?</em></h1>
     <div class="rule"></div>
-    <p class="lede">A handful of questions about rooms, rituals and the way you move through the world. Answer on instinct, and we'll tell you something about yourself at the end.</p>
+    <p class="lede">A psychological mapping test for your perfect scent. Answer on instinct about rooms, rituals and the way you move through the world. We translate you into top, heart and base notes, then match you with perfumes at every price.</p>
+    <p class="hint">No perfume knowledge needed. Most of the questions aren't about smell at all.</p>
     <div class="name-field">
       <label for="first-name">Your first name</label>
       <input id="first-name" type="text" autocomplete="given-name" maxlength="40" placeholder="e.g. Sam">

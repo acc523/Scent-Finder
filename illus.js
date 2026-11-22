@@ -154,24 +154,60 @@
     <path d="M56 84 Q60 92 66 96 M100 90 Q96 96 90 98" opacity=".5"/>
     <path d="M118 52 Q130 40 144 46 M120 58 Q136 52 146 60" opacity=".7"/>`);
 
-  // ---------- Q13: style ----------
-  const coat = `<path d="M50 114 V58 Q50 46 62 42 L80 36 L98 42 Q110 46 110 58 V114 Z"/>`;
-  I.structured_sharp = W(`${coat}<path d="M62 42 L74 76 L80 64 L86 76 L98 42"/><path d="M80 64 V112"/>
-    <path d="M70 46 L80 40 L90 46"/><circle cx="84" cy="82" r="1.6" fill="currentColor"/><circle cx="84" cy="96" r="1.6" fill="currentColor"/>
-    <path d="M56 70 H70 M90 70 H104" opacity=".5"/><path class="a" stroke="none" d="M92 60 h8 l-2 5 h-6 Z"/>`);
-  I.soft_fluid = W(`<path d="M66 40 Q80 32 94 40"/><path d="M66 40 Q56 64 52 112 Q80 104 108 112 Q104 64 94 40"/>
-    <path d="M70 46 Q64 76 66 108 M80 44 Q78 76 82 106 M90 46 Q96 76 94 108" opacity=".55"/>
-    <path class="a" stroke="none" d="M62 48 Q50 60 56 76 Q44 70 46 56 Q50 46 62 48 Z" opacity=".8"/>
-    <path d="M100 44 Q118 50 116 70 Q114 84 122 92"/>`);
-  I.relaxed_lived_in = W(`<path d="M46 114 V62 Q46 48 60 44 L80 40 L100 44 Q114 48 114 62 V114"/>
-    <path d="M46 70 Q36 82 40 100 H52 V72 M114 70 Q124 82 120 100 H108 V72"/><path d="M40 92 H52 M108 92 H120" opacity=".6"/>
-    <path d="M70 42 Q80 52 90 42"/><path d="M58 60 H72 V74 H58 Z M88 60 H102 V74 H88 Z"/>
-    <path class="a" stroke="none" d="M64 92 Q70 88 76 94 Q70 98 64 92 Z" opacity=".7"/>
-    <path d="M80 50 V112" stroke-dasharray="2 4"/>`);
-  I.bold_mixed = W(`${coat}<path d="M62 42 L72 70 L80 60 L88 70 L98 42"/>
-    <path d="M52 60 L62 52 M52 72 L66 60 M52 84 L70 68 M52 96 L72 78 M52 108 L74 88" />
-    ${[[92,80],[102,72],[100,92],[90,100],[104,106]].map(([x,y])=>`<circle class="a" cx="${x}" cy="${y}" r="3.2" stroke="none"/>`).join("")}
-    <path d="M76 82 l4 -4 l4 4 l-4 4 Z"/>`);
+  // ---------- Q13: style (two garments per frame) ----------
+  I.structured_sharp = W(`
+    <path d="M18 112 V56 Q18 46 28 42 L44 36 L60 42 Q70 46 70 56 V112 Z"/>
+    <path d="M30 42 L40 74 L44 66 L48 74 L58 42"/><path d="M44 66 V112"/>
+    <path d="M38 40 L44 36 L50 40 L47 46 H41 Z"/><path class="a" stroke="none" d="M41 46 H47 L49 64 L44 70 L39 64 Z"/><path d="M41 46 H47 L49 64 L44 70 L39 64 Z"/>
+    <circle cx="48" cy="84" r="1.5" fill="currentColor"/><circle cx="48" cy="96" r="1.5" fill="currentColor"/><path d="M58 70 H66" opacity=".6"/>
+    <path d="M104 30 Q104 24 108 22 M132 30 Q132 24 128 22"/>
+    <path d="M104 30 Q118 40 132 30 L130 58 Q140 84 148 112 Q118 118 88 112 Q96 84 106 58 Z"/>
+    <path d="M106 58 Q118 62 130 58"/><path class="a" stroke="none" d="M106 58 Q118 62 130 58 L131 63 Q118 67 105 63 Z"/>
+    <path d="M110 74 Q106 94 100 110 M126 74 Q130 94 136 110" opacity=".45"/>`);
+  I.soft_fluid = W(`
+    <path d="M30 36 Q30 18 48 18 Q66 18 66 36"/><path d="M30 36 Q48 46 66 36"/>
+    <path d="M30 36 Q18 40 16 56 L12 100 H24 L26 64 V112 H70 V64 L72 100 H84 L80 56 Q78 40 66 36"/>
+    <path d="M36 80 H60 V96 H36 Z"/><path d="M44 46 L42 62 M52 46 L54 62"/><path d="M26 108 H70" opacity=".6"/>
+    <path class="a" stroke="none" d="M94 52 Q120 44 148 52 L146 112 Q120 104 92 112 Z" opacity=".55"/>
+    <path d="M94 52 Q120 44 148 52 L146 112 Q120 104 92 112 Z"/>
+    <path d="M94 52 Q90 60 96 66 Q122 58 146 66 Q152 58 148 52"/>
+    <path d="M100 76 Q120 70 142 78 M98 92 Q120 86 144 94" opacity=".5"/><path d="M96 112 v4 M104 111 v4 M112 110 v4 M120 109 v4 M128 110 v4 M136 111 v4 M144 112 v4"/>`);
+  I.relaxed_lived_in = W(`
+    <path d="M22 24 H62 L66 112 H48 L42 52 L36 112 H18 Z"/><path d="M22 32 H62"/><path d="M42 32 V52"/>
+    <path d="M26 32 Q28 42 36 42 M58 32 Q56 42 48 42"/><path d="M24 96 Q30 100 36 96 M48 96 Q54 100 62 96" opacity=".5"/>
+    <path d="M30 104 l2 -3 M54 104 l2 -3" opacity=".6"/><circle class="a" cx="42" cy="28" r="2" stroke="none"/>
+    <path d="M96 26 L120 22 L144 26 L156 54 L144 58 L140 44 V112 H100 V44 L96 58 L84 54 Z"/>
+    <path d="M110 24 L128 112"/><path d="M130 24 L112 74"/><path d="M110 24 L104 112" opacity=".0"/>
+    <path class="a" stroke="none" d="M110 24 L116 24 L134 112 H128 Z" opacity=".6"/>
+    <path d="M104 60 h2 M104 70 h2 M104 80 h2 M104 90 h2 M104 100 h2 M136 60 h2 M136 70 h2 M136 80 h2 M136 90 h2 M136 100 h2" stroke-width="1.2"/>
+    <path d="M100 84 H112 V96 H100 Z"/>`);
+  I.bold_mixed = W(`
+    <path d="M12 112 V50 Q12 38 26 34 L44 28 L62 34 Q76 38 76 50 V112 Z"/>
+    <path d="M12 50 L4 96 H14 M76 50 L84 96 H74"/><path d="M36 30 Q44 38 52 30"/>
+    <path d="M12 104 H76" stroke-width="3"/>
+    <path class="a" stroke="none" d="M28 52 L44 46 L60 52 L56 76 L44 84 L32 76 Z"/><path d="M28 52 L44 46 L60 52 L56 76 L44 84 L32 76 Z"/>
+    <path d="M38 62 L44 58 L50 62 L44 72 Z"/>
+    <path d="M18 92 l8 -6 M18 100 l14 -10 M62 92 l8 -6" opacity=".6"/>
+    <path d="M96 100 Q96 88 106 86 L122 84 Q132 82 136 90 L150 94 Q156 96 156 104 V108 H96 Z"/><path d="M96 108 H156" stroke-width="3"/>
+    <path d="M106 92 l4 4 M114 90 l4 4 M122 88 l4 4"/><path class="a" stroke="none" d="M136 96 h14 v6 h-14 Z"/>
+    <path d="M108 66 V48 H140 V66 Z"/><path d="M114 48 Q114 36 124 36 Q134 36 134 48"/><path class="a" stroke="none" d="M120 52 h8 v6 h-8 Z"/>`);
+
+  // ---------- accord motifs (24x24, coloured on results) ----------
+  const M = (body) => `<g fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${body}</g>`;
+  I.motif = {
+    citrus: M(`<circle cx="12" cy="12" r="9"/><path d="M12 3 V21 M3 12 H21 M5.6 5.6 L18.4 18.4 M18.4 5.6 L5.6 18.4" opacity=".7"/>`),
+    herbal: M(`<path d="M12 22 V4"/><path d="M12 8 Q6 6 5 2 Q10 3 12 8 M12 8 Q18 6 19 2 Q14 3 12 8 M12 14 Q6 12 4 8 Q10 9 12 14 M12 14 Q18 12 20 8 Q14 9 12 14"/>`),
+    green: M(`<path d="M4 20 Q4 6 20 4 Q20 20 4 20 Z"/><path d="M4 20 L16 8"/>`),
+    clean: M(`<circle cx="9" cy="14" r="6"/><circle cx="17" cy="7" r="3.5"/><circle cx="18" cy="17" r="2"/>`),
+    aquatic: M(`<path d="M2 9 Q6 5 10 9 Q14 13 18 9 Q20 7 22 8 M2 16 Q6 12 10 16 Q14 20 18 16 Q20 14 22 15"/>`),
+    floral: M(`<circle cx="12" cy="12" r="2.5"/><path d="M12 9.5 Q9 2 12 2 Q15 2 12 9.5 M14.5 12 Q22 9 22 12 Q22 15 14.5 12 M12 14.5 Q15 22 12 22 Q9 22 12 14.5 M9.5 12 Q2 15 2 12 Q2 9 9.5 12"/>`),
+    fruity: M(`<circle cx="8" cy="17" r="4.5"/><circle cx="17" cy="16" r="4.5"/><path d="M8 12.5 Q10 5 15 3 M17 11.5 Q16 6 15 3"/>`),
+    sweet: M(`<path d="M12 3 Q19 12 19 15 A7 7 0 0 1 5 15 Q5 12 12 3 Z"/><path d="M9 15 A3 3 0 0 0 12 18" opacity=".7"/>`),
+    woody: M(`<path d="M12 2 L4 14 H9 L5 20 H19 L15 14 H20 Z"/><path d="M12 20 V23"/>`),
+    spicy: M(`<path d="M12 2 L14 9 L21 7 L16 12 L21 17 L14 15 L12 22 L10 15 L3 17 L8 12 L3 7 L10 9 Z"/><circle cx="12" cy="12" r="1.5"/>`),
+    smoky: M(`<path d="M8 22 Q4 17 8 12 Q12 7 8 2 M15 22 Q11 17 15 12 Q19 7 15 2"/>`),
+    earthy: M(`<path d="M4 12 Q12 2 20 12 Z"/><path d="M10 12 V20 Q12 22 14 20 V12"/><circle cx="9" cy="9" r="1"/><circle cx="14" cy="8" r="1"/>`)
+  };
 
   // ---------- slider poles (smaller) ----------
   const S = body => W(body, "0 0 80 80");
